@@ -1,3 +1,16 @@
+require('dotenv').config()
+const kebabCase = require('kebab-case')
+const contentful = require('contentful')
+const _ = require('lodash')
+const moment = require('moment')
+
+const config = {
+  space: process.env.SPACE_ID,
+  accessToken: process.env.ACCESS_TOKEN
+}
+
+const client = contentful.createClient(config)
+
 module.exports = {
   /*
   ** Headers of the page
@@ -7,16 +20,27 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js project' }
+      { hid: 'description', name: 'description', content: 'Like A Villain Web Site' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900|Open+Sans:300,400,600,700,800'
+      }
     ]
   },
   /*
   ** Customize the progress bar color
   */
-  loading: { color: '#3B8070' },
+  loading: false,
+  /*
+  ** Environment Variables
+  */
+  env: {
+    spaceId: process.env.SPACE_ID,
+    accessToken: process.env.ACCESS_TOKEN
+  },
   /*
   ** Build configuration
   */
@@ -33,6 +57,18 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
+    }
+  },
+  plugins: [
+    '~/plugins/contentful'
+  ],
+  generate: {
+    routes: function () {
+      return client.getEntries()
+      .then((response) => {
+        console.log(response);
+      })
+      .catch(console.error)
     }
   }
 }

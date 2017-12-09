@@ -1,12 +1,14 @@
 <template>
   <section>
-    <h1>index</h1>
+    <h1>music</h1>
   </section>
 </template>
 
 <script>
 
-export default {}
+export default {
+
+}
 </script>
 
 <style lang="sass">

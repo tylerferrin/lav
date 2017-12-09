@@ -29,7 +29,7 @@ html
   box-sizing: border-box
 
 h1,h2,h3,h4,h5,h6
-  font-family: "Montserrat" !important
+  font-family: "Montserrat", serif
   letter-spacing: 5px
   -ms-text-size-adjust: 100%
   -webkit-text-size-adjust: 100%

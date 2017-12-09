@@ -1,27 +1,29 @@
 <template>
   <section class="nav">
-
-      <h1
-        class="nav__title"
-        v-bind:class="{
-          'nav__title-down': isAnimated,
-          'nav__title-static': !isAnimated
-        }"
-        v-on:click="positionNav()">
-        Like a Villain
-      </h1>
-      <h1
-        class="nav__title-left"
-        v-bind:class="{
-          'nav__title-right': isAnimated,
-        }"
-        v-on:click="positionNav()">
-        Like a Villain
-      </h1>
+      <nuxt-link to="/">
+        <h1
+          class="nav__title"
+          v-bind:class="{
+            'nav__title-down': isAnimated,
+            'nav__title-static': !isAnimated
+          }"
+          v-on:click="positionNav()">
+          Like a Villain
+        </h1>
+      </nuxt-link>
+      <nuxt-link to="/">
+        <h1
+          class="nav__title-left"
+          v-bind:class="{
+            'nav__title-right': isAnimated,
+          }"
+          v-on:click="positionNav()">
+          Like a Villain
+        </h1>
+      </nuxt-link>
 
   <div class="nav__page-width">
     <div class="nav__header-container">
-
       <ul
         class="nav__nav"
         v-bind:class="{
@@ -29,12 +31,14 @@
           'nav__nav-hiding': isAnimated
         }"
         >
-        <li v-on:click="positionNav('left')"><nuxt-link to="#">Events</nuxt-link></li>
-        <li><nuxt-link to="#" v-on:click="positionNav('left')">Music</nuxt-link></li>
-        <li><nuxt-link to="#" v-on:click="positionNav('left')">Collaboritive Work</nuxt-link></li>
-        <li><nuxt-link to="#" v-on:click="positionNav('left')">Biography</nuxt-link></li>
-        <li><nuxt-link to="#" v-on:click="positionNav('left')">Contact</nuxt-link></li>
+        <li v-on:click="positionNav('left')"><nuxt-link to="/events">Events</nuxt-link></li>
+        <li v-on:click="positionNav('left')"><nuxt-link to="/music" >Music</nuxt-link></li>
+        <li v-on:click="positionNav('left')"><nuxt-link to="/videos" >Videos</nuxt-link></li>
+        <li v-on:click="positionNav('left')"><nuxt-link to="/collaborative-work" >Collaboritive Work</nuxt-link></li>
+        <li v-on:click="positionNav('left')"><nuxt-link to="#" >Biography</nuxt-link></li>
+        <li v-on:click="positionNav('left')"><nuxt-link to="#" >Contact</nuxt-link></li>
       </ul>
+
 
       <div
         class="down-arrow"
@@ -58,6 +62,19 @@
 
     </div>
   </div>
+  <ul
+  class="nav__side"
+  v-bind:class="{
+    'nav__side-showing': isAnimated
+    }"
+    >
+    <li v-on:click="positionNav('left')"><nuxt-link to="/events">Events</nuxt-link></li>
+    <li v-on:click="positionNav('left')"><nuxt-link to="/music" >Music</nuxt-link></li>
+    <li v-on:click="positionNav('left')"><nuxt-link to="/videos" >Videos</nuxt-link></li>
+    <li v-on:click="positionNav('left')"><nuxt-link to="/collaborative-work" >Collaboritive Work</nuxt-link></li>
+    <li v-on:click="positionNav('left')"><nuxt-link to="#" >Biography</nuxt-link></li>
+    <li v-on:click="positionNav('left')"><nuxt-link to="#" >Contact</nuxt-link></li>
+  </ul>
 
 
   </section>
@@ -122,6 +139,8 @@ export default {
           animation: bounce 2s infinite ease-in-out
           animation-delay: .5s
     &__title
+      color: black
+      font-family: 'Montserrat'
       z-index: 1
       position: absolute
       transition: all .75s ease-in-out
@@ -147,6 +166,7 @@ export default {
         width: 100vh
         transform: translate(-50%, 100%)
       &-left
+        color: black
         display: block
         position: fixed
         top: 0
@@ -157,10 +177,12 @@ export default {
         text-align: center
         transition: all .35s ease-in
         text-align: center
-        font-weight: 500
+        font-family: 'Montserrat'
+        font-weight: 200
         font-size: 3em
         text-transform: uppercase
       &-right
+        color: black
         display: block
         position: fixed
         top: 0
@@ -171,7 +193,8 @@ export default {
         text-align: center
         transition: all .75s ease-in-out .45s
         text-align: center
-        font-weight: 500
+        font-family: 'Montserrat'
+        font-weight: 200
         font-size: 3em
         text-transform: uppercase
     &__nav
@@ -192,11 +215,37 @@ export default {
         padding: 0 15px
         a
           font-size: 1.15em
+          font-family: 'Montserrat'
           color: black
           text-decoration: none
           letter-spacing: 2px
-          font-weight: 500
+          font-weight: 400
           text-transform: uppercase
+    &__side
+      position: absolute
+      display: block
+      transform-origin: right
+      transform: rotate(-90deg)
+      z-index: 1
+      padding: 0
+      top: 0
+      right: -52px
+      width: 100vh
+      display: flex
+      flex-direction: row
+      justify-content: center
+      transition: all .75s ease-in-out
+      li
+        display: inline-block
+        padding: 0 15px
+        a
+          font-size: 12px
+          color: black
+          text-decoration: none
+          text-transform: uppercase
+    &__side-showing
+      transition: all .75s ease-in-out .45s
+      right: 52px
 
 
   @keyframes bounce

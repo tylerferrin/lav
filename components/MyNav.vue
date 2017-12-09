@@ -228,7 +228,7 @@ export default {
       transform: rotate(-90deg)
       z-index: 1
       padding: 0
-      top: 0
+      top: -20px
       right: -52px
       width: 100vh
       display: flex

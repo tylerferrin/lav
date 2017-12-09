@@ -29,8 +29,8 @@ html
   box-sizing: border-box
 
 h1,h2,h3,h4,h5,h6
-  font-family: "Montserrat", sans-serif
-  letter-spacing: 2px
+  font-family: "Montserrat" !important
+  letter-spacing: 5px
   -ms-text-size-adjust: 100%
   -webkit-text-size-adjust: 100%
   -moz-osx-font-smoothing: grayscale

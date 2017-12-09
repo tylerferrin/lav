@@ -111,20 +111,22 @@ export default {
         transform-origin: center
         transform: translate(-50%, 0%)
         width: 5%
-        transition: all .75s ease-in-out
+        transition: all .35s ease-in-out
       .showing
-        bottom: 35px
+        transition: bottom .75s ease-in-out .45s
+        bottom: 45px
         svg
           position: relative
           top: 0
           left: 0
-          animation: bounce 4s infinite
+          animation: bounce 2s infinite ease-in-out
+          animation-delay: .5s
     &__title
       z-index: 1
       position: absolute
       transition: all .75s ease-in-out
       text-align: center
-      font-weight: 500
+      font-weight: 200
       font-size: 3em
       text-transform: uppercase
       &:hover
@@ -135,7 +137,7 @@ export default {
         width: 100%
         transform: translate(-50%, 0)
         display: block
-        letter-spacing: 2px
+        letter-spacing: 5px
         transition: all .75s ease-in-out
       &-down
         position: fixed
@@ -153,7 +155,7 @@ export default {
         transform-origin: top left
         transform: rotate(90deg)
         text-align: center
-        transition: all .5s ease-in
+        transition: all .35s ease-in
         text-align: center
         font-weight: 500
         font-size: 3em
@@ -167,7 +169,7 @@ export default {
         transform-origin: top left
         transform: rotate(90deg)
         text-align: center
-        transition: all .75s ease-in-out .25s
+        transition: all .75s ease-in-out .45s
         text-align: center
         font-weight: 500
         font-size: 3em
@@ -189,10 +191,11 @@ export default {
         display: inline-block
         padding: 0 15px
         a
+          font-size: 1.15em
           color: black
           text-decoration: none
           letter-spacing: 2px
-          font-weight: 400
+          font-weight: 500
           text-transform: uppercase
 
 

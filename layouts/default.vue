@@ -1,7 +1,9 @@
 <template>
   <div>
     <MyNav />
-    <nuxt />
+    <div class="page-width">
+      <nuxt />
+    </div>
   </div>
 </template>
 <script>
@@ -40,7 +42,9 @@ h1,h2,h3,h4,h5,h6
   box-sizing: border-box
   margin: 0
 
-
+.page-width
+  width: 100%
+  padding: 0 30px
 
 
 </style>

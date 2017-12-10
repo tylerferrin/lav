@@ -197,6 +197,7 @@ export default {
         font-weight: 200
         font-size: 3em
         text-transform: uppercase
+        z-index: 5
     &__nav
       position: absolute
       bottom: 50px
@@ -222,14 +223,14 @@ export default {
           font-weight: 400
           text-transform: uppercase
     &__side
-      position: absolute
+      position: fixed
       display: block
       transform-origin: right
       transform: rotate(-90deg)
       z-index: 1
       padding: 0
       top: -20px
-      right: -52px
+      right: -102px
       width: 100vh
       display: flex
       flex-direction: row
@@ -245,7 +246,7 @@ export default {
           text-transform: uppercase
     &__side-showing
       transition: all .75s ease-in-out .45s
-      right: 52px
+      right: 102px
 
 
   @keyframes bounce

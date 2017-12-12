@@ -81,7 +81,7 @@ export default {
 
     &__outer-container
       padding: 0 102px
-      padding-top: 50vh
+      padding-top: 30vh
       display: flex
       flex-direction: row
       justify-content: space-around
@@ -103,6 +103,7 @@ export default {
         letter-spacing: 4px
         text-transform: uppercase
         margin: 10px 0 20px
+        width: 300px
 
 
 </style>

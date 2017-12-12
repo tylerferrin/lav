@@ -1,5 +1,5 @@
 <template>
-  <section class=video-page>
+  <section class="video-page">
     <ContentGrid
     :contentArray="contentArray"
     :title="title"

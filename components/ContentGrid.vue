@@ -6,58 +6,47 @@
     <h1 class="page-title"> {{ title }} </h1>
 
     <div class="content-grid__outer-container">
-
       <!-- CONTENT THAT WORKS IN A GRID -->
-      <template v-if="content === 'music' || content === 'video' || content === 'collab' ">
+      <template v-if="contentId === 'album' || contentId === 'video' || contentId === 'collab' ">
         <div v-for="(content, index) in contentArray" class="content-grid__column">
           <h1 class="counter"> 0{{ index + 1 }}</h1>
           <p class="content-title">{{ content.title }}</p>
 
           <!-- IF CONTENT IS VIDEO - DISPLAY YOUTUBE VIDEO IFRAME -->
-          <template v-if="content.id === 'video' ">
-            <iframe width="200%" height="315" :src="content.videoUrl" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-          </template>
-
-          <!-- IF CONTENT IS MUSIC - DISPLAY BANDCAMP MUSIC IFRAME -->
-          <template v-if="content.id === 'music' ">
-            <iframe></iframe>
-          </template>
-
-          <!-- IF CONTENT IS COLLAB - DISPLAY COLLAB CONTENT -->
-          <template v-if="content.id === 'collab' ">
-            <iframe></iframe>
-          </template>
+          <MediaFrame :content='content' />
 
         </div>
       </template>
       <!-- Create ghost divs to keep the grid layout looking clean -->
-      <div v-for="ghost in ghostVids" class="content-grid__column"></div>
+      <div v-for="ghost in ghostVids" class="content-grid__column ghost"></div>
 
       <!-- CONTENT THAT WORKS IN A OPEN GRID FORMAT ... BIO || SHOWLiST || CONTACT -->
 
-
-
     </div>
-
   </section>
 </template>
 
 <script>
-  export default {
-    data () {
-      return {
-        ghostVids: 1,
-        quickScroll (index) {
-          console.log(index)
-        },
-        content: this.contentArray[0].id
-      }
-    },
-    props: [
-      'contentArray',
-      'title'
-    ]
-  }
+import MediaFrame from '~/components/MediaFrame'
+
+export default {
+  data () {
+    return {
+      ghostVids: 3,
+      quickScroll (index) {
+        console.log(index)
+      },
+      contentId: this.contentArray[0].id
+    }
+  },
+  components: {
+    MediaFrame
+  },
+  props: [
+    'contentArray',
+    'title'
+  ]
+}
 </script>
 <style lang="sass">
   .content-grid

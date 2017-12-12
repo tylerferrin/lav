@@ -5,7 +5,8 @@ const client = createClient()
 
 export const state = () => ({
   events: [],
-  videos: []
+  videos: [],
+  albums: []
 })
 
 export const mutations = {
@@ -14,6 +15,9 @@ export const mutations = {
   },
   setVideos (state, videos) {
     state.videos = videos
+  },
+  setAlbums (state, albums) {
+    state.albums = albums
   }
 }
 
@@ -31,8 +35,12 @@ export const actions = {
         let videos = _.filter(filteredDownResponse, (item) => {
           return item.id === 'video'
         })
+        let albums = _.filter(filteredDownResponse, (item) => {
+          return item.id === 'album'
+        })
         commit('setVideos', videos)
         commit('setEvents', events)
+        commit('setAlbums', albums)
       })
       .catch(console.error)
   }

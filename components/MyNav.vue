@@ -33,7 +33,7 @@
         >
         <li v-on:click="positionNav('left')"><nuxt-link to="/events">Events</nuxt-link></li>
         <li v-on:click="positionNav('left')"><nuxt-link to="/music" >Music</nuxt-link></li>
-        <li v-on:click="positionNav('left')"><nuxt-link to="/videos" >Videos</nuxt-link></li>
+        <li v-on:click="positionNav('left')"><nuxt-link to="/video" >Video</nuxt-link></li>
         <li v-on:click="positionNav('left')"><nuxt-link to="/collaborative-work" >Collaboritive Work</nuxt-link></li>
         <li v-on:click="positionNav('left')"><nuxt-link to="#" >Biography</nuxt-link></li>
         <li v-on:click="positionNav('left')"><nuxt-link to="#" >Contact</nuxt-link></li>
@@ -70,7 +70,7 @@
     >
     <li v-on:click="positionNav('left')"><nuxt-link to="/events">Events</nuxt-link></li>
     <li v-on:click="positionNav('left')"><nuxt-link to="/music" >Music</nuxt-link></li>
-    <li v-on:click="positionNav('left')"><nuxt-link to="/videos" >Videos</nuxt-link></li>
+    <li v-on:click="positionNav('left')"><nuxt-link to="/video" >Video</nuxt-link></li>
     <li v-on:click="positionNav('left')"><nuxt-link to="/collaborative-work" >Collaboritive Work</nuxt-link></li>
     <li v-on:click="positionNav('left')"><nuxt-link to="#" >Biography</nuxt-link></li>
     <li v-on:click="positionNav('left')"><nuxt-link to="#" >Contact</nuxt-link></li>
@@ -81,6 +81,7 @@
 </template>
 
 <script>
+import NavList from '~/components/NavList.vue'
 export default {
   data () {
     return {
@@ -97,6 +98,9 @@ export default {
     positionNav (position) {
       position ? this.makeLeft() : this.makeStatic()
     }
+  },
+  components: {
+    NavList
   }
 }
 </script>
@@ -131,7 +135,7 @@ export default {
         transition: all .35s ease-in-out
       .showing
         transition: bottom .75s ease-in-out .45s
-        bottom: 45px
+        bottom: 30px
         svg
           position: relative
           top: 0
@@ -246,13 +250,13 @@ export default {
           text-transform: uppercase
     &__side-showing
       transition: all .75s ease-in-out .45s
-      right: 102px
+      right: 68px
 
 
   @keyframes bounce
     0%, 100%
       transform: translateY(0)
     50%
-      transform: translateY(25px)
+      transform: translateY(-35px)
 
 </style>

@@ -61,14 +61,14 @@ module.exports = {
   },
   plugins: [
     '~/plugins/contentful'
-  ],
-  generate: {
-    routes: function () {
-      return client.getEntries()
-      .then((response) => {
-        console.log(response);
-      })
-      .catch(console.error)
-    }
-  }
+  ]
+  // generate: {
+  //   routes: function () {
+  //     return client.getEntries()
+  //     .then((response) => {
+  //       console.log(response);
+  //     })
+  //     .catch(console.error)
+  //   }
+  // }
 }

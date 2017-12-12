@@ -1,19 +1,23 @@
 <template>
   <section>
-    <EventGrid :events="events" />
+    <ContentGrid
+      :contentArray="contentArray"
+      :title="title"
+      />
   </section>
 </template>
 
 <script>
-import EventGrid from '~/components/EventGrid.vue'
+import ContentGrid from '~/components/ContentGrid'
 
 export default {
   components: {
-    EventGrid
+    ContentGrid
   },
   data () {
     return {
-      events: this.$store.state.events
+      contentArray: this.$store.state.events,
+      title: 'Events'
     }
   }
 }

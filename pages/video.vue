@@ -1,19 +1,24 @@
 <template>
   <section class=video-page>
-    <VideoGrid :videos="videos" />
+    <ContentGrid
+    :contentArray="contentArray"
+    :title="title"
+    />
   </section>
 </template>
 
 <script>
-import VideoGrid from '~/components/VideoGrid'
+import ContentGrid from '~/components/ContentGrid'
+
 export default {
   data () {
     return {
-      videos: this.$store.state.videos
+      contentArray: this.$store.state.videos,
+      title: 'Video'
     }
   },
   components: {
-    VideoGrid
+    ContentGrid
   }
 }
 </script>

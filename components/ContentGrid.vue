@@ -32,9 +32,9 @@ import MediaFrame from '~/components/MediaFrame'
 export default {
   data () {
     return {
-      ghostVids: 3,
+      ghostVids: 1,
       quickScroll (index) {
-        console.log(index)
+        console.log(index, this)
       },
       contentId: this.contentArray[0].id
     }

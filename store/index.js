@@ -32,9 +32,9 @@ export const actions = {
         let events = _.orderBy(_.filter(filteredDownResponse, (item) => {
           return item.id === 'event'
         }), 'dateAndTime')
-        let videos = _.filter(filteredDownResponse, (item) => {
+        let videos = _.orderBy(_.filter(filteredDownResponse, (item) => {
           return item.id === 'video'
-        })
+        }), 'orderNumber')
         let albums = _.filter(filteredDownResponse, (item) => {
           return item.id === 'album'
         })

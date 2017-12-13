@@ -36,7 +36,7 @@ export default {
 	position: absolute
 	top: 0
 	left: 0
-	width: 300%
-	height: 300%
+	width: 200%
+	height: 175%
 
 </style>

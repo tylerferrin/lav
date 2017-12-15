@@ -35,8 +35,8 @@
         <li v-on:click="positionNav('left')"><nuxt-link to="/music" >Music</nuxt-link></li>
         <li v-on:click="positionNav('left')"><nuxt-link to="/video" >Video</nuxt-link></li>
         <li v-on:click="positionNav('left')"><nuxt-link to="/collaborative-work" >Collaboritive Work</nuxt-link></li>
-        <li v-on:click="positionNav('left')"><nuxt-link to="#" >Biography</nuxt-link></li>
-        <li v-on:click="positionNav('left')"><nuxt-link to="#" >Contact</nuxt-link></li>
+        <li v-on:click="positionNav('left')"><nuxt-link to="/biography" >Biography</nuxt-link></li>
+        <li v-on:click="positionNav('left')"><nuxt-link to="/contact" >Contact</nuxt-link></li>
       </ul>
 
 
@@ -72,8 +72,8 @@
     <li v-on:click="positionNav('left')"><nuxt-link to="/music" >Music</nuxt-link></li>
     <li v-on:click="positionNav('left')"><nuxt-link to="/video" >Video</nuxt-link></li>
     <li v-on:click="positionNav('left')"><nuxt-link to="/collaborative-work" >Collaboritive Work</nuxt-link></li>
-    <li v-on:click="positionNav('left')"><nuxt-link to="#" >Biography</nuxt-link></li>
-    <li v-on:click="positionNav('left')"><nuxt-link to="#" >Contact</nuxt-link></li>
+    <li v-on:click="positionNav('left')"><nuxt-link to="/biography" >Biography</nuxt-link></li>
+    <li v-on:click="positionNav('left')"><nuxt-link to="/contact" >Contact</nuxt-link></li>
   </ul>
 
 
@@ -161,7 +161,7 @@ export default {
         transform: translate(-50%, 0)
         display: block
         letter-spacing: 5px
-        transition: all .75s ease-in-out
+        // transition: all .75s cubic-bezier(0.895, 0.03, 0.685, 0.22)
       &-down
         position: fixed
         bottom: -15%
@@ -211,8 +211,9 @@ export default {
       justify-content: center
       margin: 0
       padding: 0
-      transition: all .75s ease-in-out
+      transition: all .75s cubic-bezier(0.895, 0.03, 0.685, 0.22)
       &-static
+        transition: all .75s cubic-bezier(0.895, 0.03, 0.685, 0.22)
       &-hiding
         transform: translate(0%, 200px)
       li

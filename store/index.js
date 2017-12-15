@@ -6,7 +6,8 @@ const client = createClient()
 export const state = () => ({
   events: [],
   videos: [],
-  albums: []
+  albums: [],
+  bio: []
 })
 
 export const mutations = {
@@ -18,6 +19,9 @@ export const mutations = {
   },
   setAlbums (state, albums) {
     state.albums = albums
+  },
+  setBio (state, bio) {
+    state.bio = bio
   }
 }
 
@@ -28,7 +32,6 @@ export const actions = {
         let filteredDownResponse = _.map(response.items, (item) => {
           return Object.assign({}, item.fields, item.sys.contentType.sys)
         })
-
         let events = _.orderBy(_.filter(filteredDownResponse, (item) => {
           return item.id === 'event'
         }), 'dateAndTime')

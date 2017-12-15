@@ -59,6 +59,7 @@ module.exports = {
       }
     }
   },
+  css: ['~/assets/global.css'],
   plugins: [
     '~/plugins/contentful'
   ]

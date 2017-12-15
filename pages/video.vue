@@ -1,31 +1,37 @@
 <template>
-  <section class="video-page">
+  <transition mode="out-in">
+  <section>
     <ContentGrid
     :contentArray="contentArray"
     :title="title"
+    :isLeaving="isLeaving"
     />
   </section>
+  </transition>
 </template>
 
 <script>
 import ContentGrid from '~/components/ContentGrid'
 
 export default {
+  components: {
+    ContentGrid
+  },
   data () {
     return {
       contentArray: this.$store.state.videos,
-      title: 'Video'
+      title: 'Video',
+      isLeaving: false
     }
   },
-  components: {
-    ContentGrid
+  beforeRouteLeave (to, from, next) {
+    this.isLeaving = true
+    setTimeout(() => {
+      next()
+    }, 350)
   }
 }
 </script>
 
 <style lang="sass">
-  .video-page
-    width: 100%
-    margin: 0
-    margin-top: 100vh
 </style>

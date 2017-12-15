@@ -1,5 +1,4 @@
 <template>
-  <transition mode="out-in">
   <section>
     <ContentGrid
     :contentArray="contentArray"
@@ -7,7 +6,6 @@
     :isLeaving="isLeaving"
     />
   </section>
-  </transition>
 </template>
 
 <script>
@@ -19,8 +17,8 @@ export default {
   },
   data () {
     return {
-      contentArray: this.$store.state.events,
-      title: 'Events',
+      contentArray: this.$store.state.bio,
+      title: 'Biography',
       isLeaving: false
     }
   },
@@ -28,7 +26,7 @@ export default {
     this.isLeaving = true
     setTimeout(() => {
       next()
-    }, 350)
+    }, 750)
   }
 }
 </script>

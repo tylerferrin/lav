@@ -6,8 +6,7 @@
           v-bind:class="{
             'nav__title-down': isAnimated,
             'nav__title-static': !isAnimated
-          }"
-          v-on:click="positionNav()">
+          }">
           Like a Villain
         </h1>
       </nuxt-link>
@@ -16,8 +15,7 @@
           class="nav__title-left"
           v-bind:class="{
             'nav__title-right': isAnimated,
-          }"
-          v-on:click="positionNav()">
+          }">
           Like a Villain
         </h1>
       </nuxt-link>
@@ -31,12 +29,12 @@
           'nav__nav-hiding': isAnimated
         }"
         >
-        <li v-on:click="positionNav('left')"><nuxt-link to="/events">Events</nuxt-link></li>
-        <li v-on:click="positionNav('left')"><nuxt-link to="/music" >Music</nuxt-link></li>
-        <li v-on:click="positionNav('left')"><nuxt-link to="/video" >Video</nuxt-link></li>
-        <li v-on:click="positionNav('left')"><nuxt-link to="/collaborative-work" >Collaboritive Work</nuxt-link></li>
-        <li v-on:click="positionNav('left')"><nuxt-link to="/biography" >Biography</nuxt-link></li>
-        <li v-on:click="positionNav('left')"><nuxt-link to="/contact" >Contact</nuxt-link></li>
+        <li><nuxt-link to="/events">Events</nuxt-link></li>
+        <li><nuxt-link to="/music" >Music</nuxt-link></li>
+        <li><nuxt-link to="/video" >Video</nuxt-link></li>
+        <li><nuxt-link to="/collaborative-work" >Collaboritive Work</nuxt-link></li>
+        <li><nuxt-link to="/biography" >Biography</nuxt-link></li>
+        <li><nuxt-link to="/contact" >Contact</nuxt-link></li>
       </ul>
 
 
@@ -68,12 +66,12 @@
     'nav__side-showing': isAnimated
     }"
     >
-    <li v-on:click="positionNav('left')"><nuxt-link to="/events">Events</nuxt-link></li>
-    <li v-on:click="positionNav('left')"><nuxt-link to="/music" >Music</nuxt-link></li>
-    <li v-on:click="positionNav('left')"><nuxt-link to="/video" >Video</nuxt-link></li>
-    <li v-on:click="positionNav('left')"><nuxt-link to="/collaborative-work" >Collaboritive Work</nuxt-link></li>
-    <li v-on:click="positionNav('left')"><nuxt-link to="/biography" >Biography</nuxt-link></li>
-    <li v-on:click="positionNav('left')"><nuxt-link to="/contact" >Contact</nuxt-link></li>
+    <li><nuxt-link to="/events">Events</nuxt-link></li>
+    <li><nuxt-link to="/music" >Music</nuxt-link></li>
+    <li><nuxt-link to="/video" >Video</nuxt-link></li>
+    <li><nuxt-link to="/collaborative-work" >Collaboritive Work</nuxt-link></li>
+    <li><nuxt-link to="/biography" >Biography</nuxt-link></li>
+    <li><nuxt-link to="/contact" >Contact</nuxt-link></li>
   </ul>
 
 
@@ -81,27 +79,11 @@
 </template>
 
 <script>
-import NavList from '~/components/NavList.vue'
+
 export default {
-  data () {
-    return {
-      isAnimated: false
-    }
-  },
-  methods: {
-    makeLeft () {
-      this.isAnimated = true
-    },
-    makeStatic () {
-      this.isAnimated = false
-    },
-    positionNav (position) {
-      position ? this.makeLeft() : this.makeStatic()
-    }
-  },
-  components: {
-    NavList
-  }
+  props: [
+    'isAnimated'
+  ]
 }
 </script>
 

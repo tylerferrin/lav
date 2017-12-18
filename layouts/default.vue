@@ -1,6 +1,6 @@
 <template>
   <div>
-    <MyNav />
+    <MyNav :isAnimated="isAnimated" />
     <div class="page-width">
       <nuxt />
     </div>
@@ -11,8 +11,31 @@
 import MyNav from '~/components/MyNav.vue'
 
 export default {
+  data () {
+    return {
+      isAnimated: null
+    }
+  },
   components: {
     MyNav
+  },
+  watch: {
+    '$route' (to, from) {
+      if (to.name !== 'index') {
+        this.isAnimated = true
+      } else {
+        this.isAnimated = false
+      }
+    }
+  },
+  created () {
+    console.log(this.$route.name)
+    if (this.$route.name === 'index') {
+      this.isAnimated = false
+      console.log('true')
+    } else {
+      this.isAnimated = true
+    }
   }
 }
 </script>

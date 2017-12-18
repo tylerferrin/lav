@@ -15,6 +15,9 @@ module.exports = {
   /*
   ** Headers of the page
   */
+  // router: {
+  //   middleware: ['nav-position']
+  // },
   head: {
     title: 'lav',
     meta: [

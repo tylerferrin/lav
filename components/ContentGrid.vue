@@ -66,10 +66,10 @@ export default {
         el.style.transform = 'translateX(-200%)'
       },
       enter (el, done) {
-        TweenLite.to(el, 0.75, { transform: 'translateX(200%)', delay: 0.45 }, 'ease-in')
+        TweenLite.to(el, 0.75, { transform: 'translateX(200%)', opacity: 1, delay: 0.45 }, 'ease-in')
       },
       leave () {
-        TweenLite.to('.slide-left-leave', 0.65, { transform: 'matrix(1, 0, 0, 1, -650, 0)' }, 'ease-out')
+        TweenLite.to('.slide-left-leave', 0.65, { transform: 'matrix(1, 0, 0, 1, -650, 0)', opacity: 0 }, 'ease-out')
       }
     }
   },
@@ -93,6 +93,7 @@ export default {
     padding: 0
     margin: 0
     z-index: 6
+    opacity: 0
     &:hover
       cursor: pointer
     li
@@ -108,6 +109,7 @@ export default {
    position: fixed
    bottom: 25px
    left: 61px
+   opacity: 0
 
   &__outer-container
     padding: 0 102px

@@ -29,10 +29,8 @@ export default {
     }
   },
   created () {
-    console.log(this.$route.name)
     if (this.$route.name === 'index') {
       this.isAnimated = false
-      console.log('true')
     } else {
       this.isAnimated = true
     }

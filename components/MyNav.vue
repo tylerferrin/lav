@@ -195,7 +195,7 @@ export default {
       padding: 0
       transition: all .75s cubic-bezier(0.895, 0.03, 0.685, 0.22)
       &-static
-        transition: all .75s cubic-bezier(0.895, 0.03, 0.685, 0.22)
+        transition: all .75s cubic-bezier(0.075, 0.82, 0.165, 1)
       &-hiding
         transform: translate(0%, 200px)
       li

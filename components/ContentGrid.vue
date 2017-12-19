@@ -110,6 +110,7 @@ export default {
    bottom: 25px
    left: 61px
    opacity: 0
+   z-index: 1
 
   &__outer-container
     padding: 0 102px

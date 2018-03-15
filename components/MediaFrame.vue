@@ -1,6 +1,5 @@
 <template>
   <section>
-
     <div v-if="content.id === 'video' " class="youtube" :data-embed="content.videoUrl">
       <!-- Copy & Pasted from YouTube -->
       <!-- <iframe width="560" height="349" :src="content.videoUrl" frameborder="0" allowfullscreen></iframe> -->
@@ -50,22 +49,19 @@ export default {
 <style lang="sass">
   .youtube
     background-color: #000
-    margin-bottom: 30px
     position: relative
     padding-top: 56.25%
     overflow: hidden
     cursor: pointer
-    min-width: 240%
-    min-height: 27vw
-    max-width: 560px
-    max-height: 349px
+    width: 560px
+    height: 315px
+    display: inline-block
 
   .youtube img
     width: 100%
     height: auto
-    top: 50%
+    top: 0
     left: 0
-    transform: translateY(-50%)
     opacity: 0.7
 
   .youtube .play-button
@@ -80,7 +76,7 @@ export default {
   .youtube .play-button:before
     content: ""
     border-style: solid
-    border-width: 35px 0 35px 57.0px
+    border-width: 15px 0 15px 30px
     border-color: transparent transparent transparent rgba(255,255,255,1)
 
   .youtube img,

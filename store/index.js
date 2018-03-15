@@ -4,7 +4,44 @@ import _ from 'lodash'
 const client = createClient()
 
 export const state = () => ({
-  events: [],
+  events: [
+    {
+      date: '01.01.19',
+      location: 'portland',
+      info: 'description about the show',
+      id: 'shows'
+    },
+    {
+      date: '01.02.19',
+      location: 'Seattle',
+      info: 'description about the show',
+      id: 'shows'
+    },
+    {
+      date: '01.03.19',
+      location: 'Boise',
+      info: 'description about the show',
+      id: 'shows'
+    },
+    {
+      date: '01.01.19',
+      location: 'portland',
+      info: 'description about the show',
+      id: 'shows'
+    },
+    {
+      date: '01.02.19',
+      location: 'Seattle',
+      info: 'description about the show',
+      id: 'shows'
+    },
+    {
+      date: '01.03.19',
+      location: 'Boise',
+      info: 'description about the show',
+      id: 'shows'
+    }
+  ],
   videos: [],
   albums: [],
   bio: []
@@ -32,9 +69,9 @@ export const actions = {
         let filteredDownResponse = _.map(response.items, (item) => {
           return Object.assign({}, item.fields, item.sys.contentType.sys)
         })
-        let events = _.orderBy(_.filter(filteredDownResponse, (item) => {
-          return item.id === 'event'
-        }), 'dateAndTime')
+        // let events = _.orderBy(_.filter(filteredDownResponse, (item) => {
+        //   return item.id === 'event'
+        // }), 'dateAndTime')
         let videos = _.orderBy(_.filter(filteredDownResponse, (item) => {
           return item.id === 'video'
         }), 'orderNumber')
@@ -42,7 +79,7 @@ export const actions = {
           return item.id === 'album'
         })
         commit('setVideos', videos)
-        commit('setEvents', events)
+        // commit('setEvents', events)
         commit('setAlbums', albums)
       })
       .catch(console.error)

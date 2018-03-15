@@ -24,9 +24,15 @@
     <div class="content-grid__outer-container">
       <!-- CONTENT THAT WORKS IN A GRID -->
       <template v-if="contentId === 'album' || contentId === 'video' || contentId === 'collab' ">
-        <div v-for="(content, index) in contentArray" class="content-grid__column">
+        <div v-for="(content, index) in contentArray" class="content-grid__row">
           <h1 class="counter"> 0{{ index + 1 }}</h1>
-          <p class="content-title">{{ content.title }}</p>
+
+          <div class="title-and-description">
+
+            <p class="content-title">{{ content.title }}</p>
+            <p class="content-description"></p>
+
+          </div>
 
           <!-- IF CONTENT IS VIDEO - DISPLAY YOUTUBE VIDEO IFRAME -->
           <MediaFrame :content='content' />
@@ -37,6 +43,14 @@
       <div v-for="ghost in ghostVids" class="content-grid__column ghost"></div>
 
       <!-- CONTENT THAT WORKS IN A OPEN GRID FORMAT ... BIO || SHOWLiST || CONTACT -->
+
+      <div v-if="contentId === 'shows' " class="content-grid__event-row" >
+        <ul v-for="event in contentArray">
+          <li>{{ event.date }}</li>
+          <li>{{ event.location }}</li>
+          <li>{{ event.info }}</li>
+        </ul>
+      </div>
 
     </div>
   </section>
@@ -111,32 +125,56 @@ export default {
    left: 61px
    opacity: 0
    z-index: 1
+   transition: all .25s
+   @media screen and (max-width: 1200px)
+     font-size: 3rem
 
   &__outer-container
     padding: 0 102px
     padding-top: 30vh
     display: flex
+    flex-direction: column
+    justify-content: center
+    width: 100%
+  &__row
+    width: 100%
+    height: 350px
+    margin-bottom: 50px
+    display: flex
     flex-direction: row
     justify-content: space-around
-    width: 100%
-  &__column
-    width: 22.5%
-    height: 75vh
-    &:first-child
-      margin-top: 85vh
-    &:nth-child(3)
-      margin-top: 170vh
     .counter
       font-size: 2.9rem
-      margin-top: 50px
-    .content-title
-      font-family: 'Montserrat'
-      font-weight: 500
-      font-size: 1.9em
-      letter-spacing: 4px
-      text-transform: uppercase
-      margin: 10px 0 20px
-      width: 300px
+      color: desaturate(purple, 50%)
+    .title-and-description
+
+      .content-title
+        text-align: right
+        font-family: 'Montserrat'
+        font-weight: 500
+        font-size: 1.9em
+        letter-spacing: 4px
+        text-transform: uppercase
+        margin: 10px 0 20px
+        width: 350px
+
+  &__event-row
+    display: flex
+    flex-direction: column
+
+    ul
+      display: flex
+      flex-direction: row
+      justify-content: space-between
+      list-style-type: none
+      padding: 0 !important
+      li
+        color: black
+        font-size: 2em
+        padding: 0 0 25px 25px
+      li:first-of-type
+        padding-left: 10px
+
 
 
 

@@ -32,7 +32,7 @@
         <li><nuxt-link to="/events">Events</nuxt-link></li>
         <li><nuxt-link to="/music" >Music</nuxt-link></li>
         <li><nuxt-link to="/video" >Video</nuxt-link></li>
-        <li><nuxt-link to="/collaborative-work" >Collaboritive Work</nuxt-link></li>
+        <li><nuxt-link to="/works" >Works</nuxt-link></li>
         <li><nuxt-link to="/biography" >Biography</nuxt-link></li>
         <li><nuxt-link to="/contact" >Contact</nuxt-link></li>
       </ul>
@@ -69,7 +69,7 @@
     <li><nuxt-link to="/events">Events</nuxt-link></li>
     <li><nuxt-link to="/music" >Music</nuxt-link></li>
     <li><nuxt-link to="/video" >Video</nuxt-link></li>
-    <li><nuxt-link to="/collaborative-work" >Collaboritive Work</nuxt-link></li>
+    <li><nuxt-link to="/works" >Works</nuxt-link></li>
     <li><nuxt-link to="/biography" >Biography</nuxt-link></li>
     <li><nuxt-link to="/contact" >Contact</nuxt-link></li>
   </ul>

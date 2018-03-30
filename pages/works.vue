@@ -18,7 +18,7 @@ export default {
   data () {
     return {
       contentArray: [],
-      title: 'Work Cont...',
+      title: 'Works',
       isLeaving: false
     }
   },

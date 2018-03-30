@@ -6,11 +6,7 @@
       v-on:enter="enter"
       v-bind:css="false"
       appear
-      mode="out-in"
-    >
-      <ul class="quick-nav slide-left-leave">
-        <li v-on:click="quickScroll(index)" v-for="(content, index) in contentArray">0{{ index + 1 }}</li>
-      </ul>
+      mode="out-in" >
     </transition>
     <transition
       v-on:before-enter="beforeEnter"
@@ -72,9 +68,6 @@ export default {
   data () {
     return {
       ghostVids: 1,
-      quickScroll (index) {
-        console.log(index, this)
-      },
       contentId: (this.contentArray.length && this.contentArray[0].id) || '',
       beforeEnter (el) {
         el.style.transform = 'translateX(-200%)'
@@ -145,7 +138,6 @@ export default {
     justify-content: space-around
     .counter
       font-size: 2.9rem
-      color: desaturate(purple, 50%)
     .title-and-description
 
       .content-title

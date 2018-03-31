@@ -40,7 +40,7 @@
 
       <!-- CONTENT THAT WORKS IN A OPEN GRID FORMAT ... BIO || SHOWLiST || CONTACT -->
 
-      <div v-if="contentId === 'event' " class="content-grid__event-row" >
+      <div v-if="contentId === 'event' " >
         <div v-for="event in contentArray">
           <EventRow :event='event' />
         </div>
@@ -149,23 +149,6 @@ export default {
         text-transform: uppercase
         margin: 10px 0 20px
         width: 350px
-
-  &__event-row
-    display: flex
-    flex-direction: column
-
-    ul
-      display: flex
-      flex-direction: row
-      justify-content: space-between
-      list-style-type: none
-      padding: 0 !important
-      li
-        color: black
-        font-size: 2em
-        padding: 0 0 25px 25px
-      li:first-of-type
-        padding-left: 10px
 
 
 

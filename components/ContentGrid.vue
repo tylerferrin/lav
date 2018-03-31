@@ -40,12 +40,10 @@
 
       <!-- CONTENT THAT WORKS IN A OPEN GRID FORMAT ... BIO || SHOWLiST || CONTACT -->
 
-      <div v-if="contentId === 'shows' " class="content-grid__event-row" >
-        <ul v-for="event in contentArray">
-          <li>{{ event.date }}</li>
-          <li>{{ event.location }}</li>
-          <li>{{ event.info }}</li>
-        </ul>
+      <div v-if="contentId === 'event' " class="content-grid__event-row" >
+        <div v-for="event in contentArray">
+          <EventRow :event='event' />
+        </div>
       </div>
 
     </div>
@@ -54,11 +52,13 @@
 
 <script>
 import MediaFrame from '~/components/MediaFrame'
+import EventRow from '~/components/EventRow'
 import TweenLite from 'gsap'
 
 export default {
   components: {
-    MediaFrame
+    MediaFrame,
+    EventRow
   },
   props: [
     'contentArray',

@@ -1,26 +1,44 @@
+
 <template>
   <div>
-    <MyNav :isAnimated="isAnimated" />
+    <MyNav :isAnimated="isAnimated" v-if="!isMobile" />
+    <MobileNav v-if="isMobile" />
     <div class="page-width">
       <nuxt />
     </div>
   </div>
 </template>
 <script>
-
 import MyNav from '~/components/MyNav.vue'
+import MobileNav from '~/components/MobileNav.vue'
 
 export default {
+  components: {
+    MyNav,
+    MobileNav
+  },
+
   data () {
     return {
-      isAnimated: null
+      isAnimated: null,
+      isMobile: false,
+      screenWatcher: () => {
+        if (window.innerWidth < 675) {
+          this.isMobile = this.setMobile()
+        } else {
+          this.isMobile = !this.setMobile()
+        }
+      },
+      setMobile: () => {
+        return true
+      }
     }
   },
-  components: {
-    MyNav
-  },
+
   watch: {
     '$route' (to, from) {
+      window.addEventListener('resize', this.screenWatcher)
+
       if (to.name !== 'index') {
         this.isAnimated = true
       } else {
@@ -28,13 +46,20 @@ export default {
       }
     }
   },
+
   created () {
     if (this.$route.name === 'index') {
       this.isAnimated = false
     } else {
       this.isAnimated = true
     }
+  },
+
+  mounted () {
+    window.addEventListener('resize', this.screenWatcher)
+    this.screenWatcher()
   }
+
 }
 </script>
 

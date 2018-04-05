@@ -7,7 +7,7 @@
         </h1>
       </nuxt-link>
       <Burger
-        :isClicked="isClicked"
+        :isScrolled="isScrolled"
         :openMenuClick="openMenuClick" />
     </div>
 
@@ -32,23 +32,23 @@ export default {
   },
   data () {
     return {
-      isClicked: false,
+      isScrolled: false,
       openMenuClick: () => {
-        this.isClicked = !this.isClicked
         scroller.scrollTo('.mobile-nav__container', {
-          duration: 700,
+          duration: 300,
           easing: 'linear',
           offset: -75
         })
+        this.isScrolled = false
       },
       scrollDown: (element) => {
         setTimeout(() => {
-          console.log('1 sec')
           scroller.scrollTo(element, {
             duration: 700,
             easing: 'linear',
             offset: -75
           })
+          this.isScrolled = true
         }, 150)
       }
     }
@@ -82,11 +82,11 @@ export default {
     display: flex
     flex-direction: column
     justify-content: center
-    align-items: center
+    align-items: left
     height: 100vh
     width: 100vw
     list-style: none
-    padding: 0
+    padding-left: 29px
     li
       padding: 10px 0 10px 0
       a

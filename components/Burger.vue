@@ -1,18 +1,17 @@
 <template>
   <button v-on:click="openMenuClick" class="burger-container">
-    <div class="burger-container__bar"
-      v-bind:class="{openTop: isClicked}"></div>
-    <div class="burger-container__bar"
-      v-bind:class="{openMid: isClicked}"></div>
-    <div class="burger-container__bar"
-      v-bind:class="{openBot: isClicked}"></div>
+    <nuxt-link v-bind:class="{'showArrow': isScrolled}" to="/">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43.13 22.27">
+        <polygon class="cls-1" points="21.57 22.27 0 0.71 0.71 0 21.57 20.86 42.43 0 43.13 0.71 21.57 22.27"/>
+      </svg>
+    </nuxt-link>
   </button>
 </template>
 
 <script>
 export default {
   props: [
-    'isClicked',
+    'isScrolled',
     'openMenuClick'
   ]
 }
@@ -23,12 +22,7 @@ export default {
     position: absolute
     top: 0
     right: 0
-    margin: 22.5px 25px 0 0
-    display: inline-flex
-    flex-direction: column
-    justify-content: space-between
-    align-items: center
-    height: 20px
+    margin: 25px 25px 0 0
     border: none
     background-color: transparent
     &:hover
@@ -36,21 +30,14 @@ export default {
       outline: none
     &:focus
       outline: none
+    a
+      opacity: 0
+      transition: opacity .25s ease-in-out
+      svg
+        height: 14px
+        transform: rotate(180deg)
 
-    &__bar
-      height: 1px
-      width: 25px
-      background-color: black
-      transition: all .25s ease-out
-
-  // burger animations
-  .openTop
-    transform: translate(-75%, 0)
-  .openMid
-    transform: translate(-50%, 0)
-  .openBot
-    transform: translate(-25%, 0)
-
-
+  .showArrow
+    opacity: 1 !important
 
 </style>

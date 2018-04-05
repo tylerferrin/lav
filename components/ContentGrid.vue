@@ -8,15 +8,16 @@
       appear
       mode="out-in" >
     </transition>
+
     <transition
       v-on:before-enter="beforeEnter"
       v-on:enter="enter"
       v-bind:css="false"
       appear
-      mode="out-in"
-      >
+      mode="out-in" >
       <h1 class="page-title slide-left-leave"> {{ title }} </h1>
     </transition>
+
     <div class="content-grid__outer-container">
       <!-- CONTENT THAT WORKS IN A GRID -->
       <template v-if="contentId === 'album' || contentId === 'video' || contentId === 'collab' ">
@@ -110,17 +111,20 @@ export default {
       font-family: 'Montserrat'
       font-weight: 900
   .page-title
-   font-size: 5rem
-   margin: 0 auto
-   text-transform: uppercase
-   position: fixed
-   bottom: 25px
-   left: 61px
-   opacity: 0
-   z-index: 1
-   transition: all .25s
-   @media screen and (max-width: 1200px)
-     font-size: 3rem
+    font-size: 5rem
+    margin: 0 auto
+    text-transform: uppercase
+    position: fixed
+    bottom: 25px
+    left: 61px
+    opacity: 0
+    z-index: 1
+    transition: all .25s
+    @media screen and (max-width: 1200px)
+      font-size: 3rem
+    @media screen and (max-width: 675px)
+      font-size: 2rem
+      left: 10px
 
   &__outer-container
     padding: 0 102px

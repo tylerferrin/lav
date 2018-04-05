@@ -22,6 +22,7 @@ export default {
     position: absolute
     top: 0
     right: 0
+    width: 68px
     margin: 25px 25px 0 0
     border: none
     background-color: transparent

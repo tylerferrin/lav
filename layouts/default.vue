@@ -20,7 +20,7 @@ export default {
 
   data () {
     return {
-      isAnimated: null,
+      isAnimated: false,
       isMobile: false,
       screenWatcher: () => {
         if (window.innerWidth < 675) {
@@ -56,10 +56,9 @@ export default {
   },
 
   mounted () {
-    window.addEventListener('resize', this.screenWatcher)
     this.screenWatcher()
+    window.addEventListener('resize', this.screenWatcher)
   }
-
 }
 </script>
 

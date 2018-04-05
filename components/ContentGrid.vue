@@ -41,8 +41,8 @@
 
       <!-- CONTENT THAT WORKS IN A OPEN GRID FORMAT ... BIO || SHOWLiST || CONTACT -->
 
-      <div v-if="contentId === 'event' " >
-        <div v-for="event in contentArray" class="event-container">
+      <div v-if="contentId === 'event' " class="event-container">
+        <div v-for="event in contentArray" class="event-item">
           <EventRow :event='event' />
         </div>
       </div>
@@ -135,6 +135,16 @@ export default {
     width: 100%
     @media screen and (max-width: 675px)
       padding: 0 50px
+
+    .event-container
+      display: flex
+      flex-direction: row
+      justify-content: space-between
+      flex-wrap: wrap
+      @media screen and (min-width: 675px)
+        justify-content: space-around
+      .event-item
+        display: inline-block
   &__row
     width: 100%
     height: 350px
@@ -155,7 +165,6 @@ export default {
         text-transform: uppercase
         margin: 10px 0 20px
         width: 350px
-
 
 
 

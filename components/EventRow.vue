@@ -1,13 +1,13 @@
 <template>
-  <ul class="event-row">
-    <li class="event-row__date">{{ event.dateAndTime }}</li>
-    <li class="event-row__venue">{{ event.venue }}</li>
-    <li class="event-row__city">{{ event.cityStateCountry }}</li>
-    <li class="event-row__social"
+  <ul class="event-list">
+    <li class="event-list__date">{{ dateFormat(event.dateAndTime) }}</li>
+    <li class="event-list__venue">{{ event.venue }}</li>
+    <li class="event-list__city">{{ event.cityStateCountry }}</li>
+    <li class="event-list__social"
         v-if="event.socialEventLink">
       <a :href='event.socialEventLink'>RSVP</a>
     </li>
-    <li class="event-row__tickets"
+    <li class="event-list__tickets"
         v-if="event.buyTicketsLink">
       <a :href='event.buyTicketsLink'>TICKETS</a>
     </li>
@@ -15,16 +15,25 @@
 </template>
 
 <script>
+import moment from 'moment'
+
 export default {
   props: [
     'event'
-  ]
+  ],
+  data () {
+    return {
+      dateFormat: (date) => {
+        return moment(date).format('MMMM Do, YYYY')
+      }
+    }
+  }
 }
 </script>
 
 <style lang="sass">
-  .event-row
-    display: flex
+  .event-list
+    display: inline-flex
     flex-direction: column
     list-style-type: none
     margin: 40px 0

@@ -39,8 +39,7 @@
       <!-- Create ghost divs to keep the grid layout looking clean -->
       <div v-for="ghost in ghostVids" class="content-grid__column ghost"></div>
 
-      <!-- CONTENT THAT WORKS IN A OPEN GRID FORMAT ... BIO || SHOWLiST || CONTACT -->
-
+      <!-- IF CONTENT IS SHOWS USE EVENT COMPONENT -->
       <div v-if="contentId === 'event' " class="event-container">
         <div v-for="event in contentArray" class="event-item">
           <EventRow :event='event' />
@@ -91,7 +90,7 @@ export default {
 <style lang="sass">
 .content-grid
   margin-top: 100vh
-  padding-bottom: 200px
+  padding-bottom: 375px
   background-color: lighten(grey, 45%)
   .quick-nav
     position: absolute
@@ -116,7 +115,7 @@ export default {
     text-transform: uppercase
     position: fixed
     bottom: 25px
-    left: 61px
+    left: 56px
     opacity: 0
     z-index: 1
     transition: all .25s
@@ -134,7 +133,7 @@ export default {
     justify-content: center
     width: 100%
     @media screen and (max-width: 675px)
-      padding: 0 50px
+      padding: 0 40px
 
     .event-container
       display: flex
@@ -145,6 +144,7 @@ export default {
         justify-content: space-around
       .event-item
         display: inline-block
+        margin-left: 15px
   &__row
     width: 100%
     height: 350px

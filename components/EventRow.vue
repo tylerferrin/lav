@@ -5,11 +5,17 @@
     <li class="event-list__city">{{ event.cityStateCountry }}</li>
     <li class="event-list__social"
         v-if="event.socialEventLink">
-      <a :href='event.socialEventLink'>RSVP</a>
+      <a :href='event.socialEventLink'
+          target="_blank">
+          RSVP
+      </a>
     </li>
     <li class="event-list__tickets"
         v-if="event.buyTicketsLink">
-      <a :href='event.buyTicketsLink'>TICKETS</a>
+      <a :href='event.buyTicketsLink'
+          target="_blank">
+          TICKETS
+      </a>
     </li>
   </ul>
 </template>
@@ -49,6 +55,7 @@ export default {
         color: black
         text-decoration: none
         transition: all .15s ease-in-out
+        letter-spacing: 2px
         &:hover
           font-weight: bold
 

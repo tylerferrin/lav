@@ -44,17 +44,8 @@
           'showing': isAnimated
         }"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43.13 22.27">
-          <defs>
-            <style>
-              .cls-1{fill:#000;}
-            </style>
-          </defs>
-          <g id="Layer_2" data-name="Layer 2">
-            <g id="Layer_1-2" data-name="Layer 1">
-              <polygon class="cls-1" points="21.57 22.27 0 0.71 0.71 0 21.57 20.86 42.43 0 43.13 0.71 21.57 22.27"/>
-            </g>
-          </g>
+        <svg v-on:click="scrollDown('.content-grid__outer-container')" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43.13 22.27">
+          <polygon class="cls-1" points="21.57 22.27 0 0.71 0.71 0 21.57 20.86 42.43 0 43.13 0.71 21.57 22.27"/>
         </svg>
       </div>
 
@@ -79,11 +70,25 @@
 </template>
 
 <script>
+import scroller from 'vue-scrollto'
 
 export default {
   props: [
     'isAnimated'
-  ]
+  ],
+  data () {
+    return {
+      scrollDown: (element) => {
+        setTimeout(() => {
+          scroller.scrollTo(element, {
+            duration: 700,
+            easing: 'linear',
+            offset: -75
+          })
+        }, 150)
+      }
+    }
+  }
 }
 </script>
 
@@ -124,6 +129,8 @@ export default {
           left: 0
           animation: bounce 2s infinite ease-in-out
           animation-delay: .5s
+          &:hover
+            cursor: pointer
     &__title
       color: black
       font-family: 'Montserrat'

@@ -1,13 +1,15 @@
 <template>
   <ul class="event-row">
-    <li>{{ event.dateAndTime }}</li>
-    <li>{{ event.venue }}</li>
-    <li>{{ event.cityStateCountry }}</li>
-    <li v-if="event.socialEventLink">
+    <li class="event-row__date">{{ event.dateAndTime }}</li>
+    <li class="event-row__venue">{{ event.venue }}</li>
+    <li class="event-row__city">{{ event.cityStateCountry }}</li>
+    <li class="event-row__social"
+        v-if="event.socialEventLink">
       <a :href='event.socialEventLink'>RSVP</a>
     </li>
-    <li v-if="event.buyTicketsLink">
-      <a :href='event.buyTicketsLink'>Buy Tickets</a>
+    <li class="event-row__tickets"
+        v-if="event.buyTicketsLink">
+      <a :href='event.buyTicketsLink'>TICKETS</a>
     </li>
   </ul>
 </template>
@@ -25,8 +27,20 @@ export default {
     display: flex
     flex-direction: column
     list-style-type: none
-    margin: 40px
+    margin: 40px 0
     padding: 0
-
+    font-family: 'Montserrat'
+    li
+      margin: 2.5px 0
+    &__date
+      font-weight: bold
+    &__social,
+    &__tickets
+      a
+        color: black
+        text-decoration: none
+        transition: all .15s ease-in-out
+        &:hover
+          font-weight: bold
 
 </style>

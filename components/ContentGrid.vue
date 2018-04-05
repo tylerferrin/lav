@@ -42,7 +42,7 @@
       <!-- CONTENT THAT WORKS IN A OPEN GRID FORMAT ... BIO || SHOWLiST || CONTACT -->
 
       <div v-if="contentId === 'event' " >
-        <div v-for="event in contentArray">
+        <div v-for="event in contentArray" class="event-container">
           <EventRow :event='event' />
         </div>
       </div>
@@ -133,6 +133,8 @@ export default {
     flex-direction: column
     justify-content: center
     width: 100%
+    @media screen and (max-width: 675px)
+      padding: 0 50px
   &__row
     width: 100%
     height: 350px

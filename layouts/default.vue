@@ -1,8 +1,8 @@
 
 <template>
   <div>
-    <MyNav :isAnimated="isAnimated" v-if="!isMobile" />
     <MobileNav v-if="isMobile" />
+    <MyNav :isAnimated="isAnimated" v-if="isDesktop" />
     <div class="page-width">
       <nuxt />
     </div>
@@ -21,16 +21,16 @@ export default {
   data () {
     return {
       isAnimated: false,
-      isMobile: false,
+      isMobile: null,
+      isDesktop: false,
       screenWatcher: () => {
         if (window.innerWidth < 675) {
-          this.isMobile = this.setMobile()
+          this.isMobile = true
+          this.isDesktop = false
         } else {
-          this.isMobile = !this.setMobile()
+          this.isMobile = false
+          this.isDesktop = true
         }
-      },
-      setMobile: () => {
-        return true
       }
     }
   },

@@ -1,14 +1,17 @@
 <template>
   <section>
     <div class="mobile-nav__container">
-      <nuxt-link to="/" class="mobile-nav__route-to">
-        <h1 class="mobile-nav__title">
-          Like a Villain
-        </h1>
-      </nuxt-link>
+      <div class="click-wrapper" v-on:click="scrollUpToMenu">
+        <nuxt-link to="/" disable class="mobile-nav__route-to">
+          <h1 class="mobile-nav__title">
+            Like a Villain
+          </h1>
+        </nuxt-link>
+      </div>
+
       <Burger
         :isScrolled="isScrolled"
-        :openMenuClick="openMenuClick" />
+        :scrollUpToMenu="scrollUpToMenu" />
     </div>
 
     <ul class="route-list">
@@ -33,7 +36,7 @@ export default {
   data () {
     return {
       isScrolled: false,
-      openMenuClick: () => {
+      scrollUpToMenu: () => {
         scroller.scrollTo('.mobile-nav__container', {
           duration: 300,
           easing: 'linear',
@@ -50,6 +53,13 @@ export default {
           })
           this.isScrolled = true
         }, 150)
+      }
+    }
+  },
+  watch: {
+    '$route' (to, from) {
+      if (to.name === 'index') {
+        this.scrollUpToMenu()
       }
     }
   }

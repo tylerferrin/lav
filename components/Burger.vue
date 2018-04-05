@@ -1,5 +1,5 @@
 <template>
-  <button v-on:click="openMenuClick" class="burger-container">
+  <button v-on:click="scrollUpToMenu" class="burger-container">
     <nuxt-link v-bind:class="{'showArrow': isScrolled}" to="/">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43.13 22.27">
         <polygon class="cls-1" points="21.57 22.27 0 0.71 0.71 0 21.57 20.86 42.43 0 43.13 0.71 21.57 22.27"/>
@@ -12,7 +12,7 @@
 export default {
   props: [
     'isScrolled',
-    'openMenuClick'
+    'scrollUpToMenu'
   ]
 }
 </script>
@@ -33,6 +33,7 @@ export default {
     a
       opacity: 0
       transition: opacity .25s ease-in-out
+      padding: 25px
       svg
         height: 14px
         transform: rotate(180deg)

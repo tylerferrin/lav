@@ -110,7 +110,7 @@ export default {
       font-family: 'Montserrat'
       font-weight: 900
   .page-title
-    font-size: 5rem
+    font-size: 3rem
     margin: 0 auto
     text-transform: uppercase
     position: fixed
@@ -127,7 +127,7 @@ export default {
 
   &__outer-container
     padding: 0 102px
-    padding-top: 30vh
+    padding-top: 10vh
     display: flex
     flex-direction: column
     justify-content: center
@@ -138,13 +138,14 @@ export default {
     .event-container
       display: flex
       flex-direction: row
-      justify-content: space-between
+      justify-content: left
       flex-wrap: wrap
       @media screen and (min-width: 675px)
-        justify-content: space-around
+        justify-content: left
       .event-item
         display: inline-block
-        margin-left: 15px
+        margin-left: 50px
+        width: 200px
   &__row
     width: 100%
     height: 350px

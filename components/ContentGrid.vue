@@ -14,7 +14,7 @@
       v-on:enter="enter"
       v-bind:css="false"
       appear
-      mode="out-in" >
+      mode="out" >
       <h1 class="page-title slide-left-leave"> {{ title }} </h1>
     </transition>
 
@@ -136,18 +136,24 @@ export default {
       padding: 0 40px
 
     .event-container
-      display: flex
-      flex-direction: row
-      justify-content: left
-      flex-wrap: wrap
-      @media screen and (min-width: 675px)
+      @supports (display: grid)
+        display: grid
+        grid-gap: 30px
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr))
+
+      @supports not (display: grid)
+        display: flex
+        flex-direction: row
         justify-content: left
-      .event-item
-        display: inline-block
-        margin-left: 50px
-        width: 200px
-        @media screen and (max-width: 540px)
-          margin-left: 0
+        flex-wrap: wrap
+        @media screen and (min-width: 675px)
+          justify-content: left
+        .event-item
+          display: inline-block
+          margin-left: 50px
+          width: 200px
+          @media screen and (max-width: 540px)
+            margin-left: 0
   &__row
     width: 100%
     height: 350px

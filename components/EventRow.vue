@@ -10,18 +10,18 @@
       </p>
     </li>
     <li class="event-list__description">{{ event.description }}</li>
-    <li class="event-list__social"
-        v-if="event.socialEventLink">
-      <a :href='event.socialEventLink'
-          target="_blank">
+    <li class="event-list__links">
+      <a
+        :href='event.socialEventLink'
+        target="_blank"
+        v-if="event.socialEventLink" >
           RSVP
       </a>
-    </li>
-    <li class="event-list__tickets"
-        v-if="event.buyTicketsLink">
-      <a :href='event.buyTicketsLink'
-          target="_blank">
-          TICKETS
+      <a
+        :href='event.buyTicketsLink'
+        target="_blank"
+        v-if="event.buyTicketsLink" >
+        TICKETS
       </a>
     </li>
   </ul>
@@ -49,23 +49,32 @@ export default {
     display: inline-flex
     flex-direction: column
     list-style-type: none
-    margin: 40px 0
-    padding: 0
+    height: 100%
+    padding: 40px 0 60px
+    margin: 0
     font-family: 'Montserrat'
+    position: relative
     li
       margin: 2.5px 0
     &__date
       font-weight: bold
-    &__social,
-    &__tickets
+    &__links
       margin: 5px 0 !important
+      position: absolute
+      bottom: 0
       a
+        display: block
         color: black
         text-decoration: none
         transition: all .15s ease-in-out
         letter-spacing: 2px
         &:hover
           font-weight: bold
+
+        & + a
+          margin-top: 10px
+
+
     &__other-performers
       font-size: 10px
       margin-bottom: 3px

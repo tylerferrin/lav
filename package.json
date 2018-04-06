@@ -30,7 +30,7 @@
     "eslint-plugin-standard": "^3.0.1",
     "kebab-case": "^1.0.0",
     "lodash": "^4.17.4",
-    "marked": "^0.3.6",
+    "marked": "^0.3.19",
     "moment": "^2.22.0",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",

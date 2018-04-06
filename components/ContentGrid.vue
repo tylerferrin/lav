@@ -37,7 +37,7 @@
         </div>
       </template>
       <!-- Create ghost divs to keep the grid layout looking clean -->
-      <div v-for="ghost in ghostVids" class="content-grid__column ghost"></div>
+      <!-- <div v-for="ghost in ghostVids" class="content-grid__column ghost"></div> -->
 
       <!-- IF CONTENT IS SHOWS USE EVENT COMPONENT -->
       <div v-if="contentId === 'event' " class="event-container">
@@ -46,6 +46,10 @@
         </div>
       </div>
 
+      <!-- IF CONTENT IS BIO USE BIO GRID COMPONENT -->
+
+        <BioGrid v-if="contentId === 'bio'" />
+
     </div>
   </section>
 </template>
@@ -53,12 +57,14 @@
 <script>
 import MediaFrame from '~/components/MediaFrame'
 import EventRow from '~/components/EventRow'
+import BioGrid from '~/components/BioGrid'
 import TweenLite from 'gsap'
 
 export default {
   components: {
     MediaFrame,
-    EventRow
+    EventRow,
+    BioGrid
   },
   props: [
     'contentArray',

@@ -14,7 +14,7 @@
       v-on:enter="enter"
       v-bind:css="false"
       appear
-      mode="out" >
+      mode="out-in" >
       <h1 class="page-title slide-left-leave"> {{ title }} </h1>
     </transition>
 

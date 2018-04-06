@@ -41,6 +41,10 @@ export const actions = {
         let albums = _.filter(filteredDownResponse, (item) => {
           return item.id === 'album'
         })
+        let bio = _.filter(filteredDownResponse, (item) => {
+          return item.id === 'bio'
+        })
+        commit('setBio', bio)
         commit('setVideos', videos)
         commit('setEvents', events)
         commit('setAlbums', albums)

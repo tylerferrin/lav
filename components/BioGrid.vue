@@ -36,7 +36,9 @@ export default {
 
     // add resize listener to trigger #col3 padding-top changes
     window.addEventListener('resize', this.resetPaddingHeight)
-    this.resetPaddingHeight()
+    setTimeout(() => {
+      this.resetPaddingHeight()
+    }, 50)
   }
 }
 </script>

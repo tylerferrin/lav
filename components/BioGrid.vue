@@ -16,7 +16,7 @@ import marked from 'marked'
 export default {
   data () {
     return {
-      paddingHeight: null,
+      paddingHeight: 150,
       photoHeight: () => {
         return document.getElementById('lavPhoto').height
       },
@@ -30,32 +30,48 @@ export default {
     this.bio = bio
   },
   mounted () {
+    // insert the bio into the column
     const col3 = document.getElementById('col3')
     col3.innerHTML = marked(this.bio)
 
-    // get photo Height for text column padding top
-    this.paddingHeight = this.photoHeight() / 2
+    // add resize listener to trigger #col3 padding-top changes
     window.addEventListener('resize', this.resetPaddingHeight)
+    this.resetPaddingHeight()
   }
 }
 </script>
 <style lang="sass">
   .bio
     &__container
+      // main grid styles
+
       display: grid
       grid-gap: 30px
       grid-template-columns: 1fr 1fr 1fr
+
+      // grid media queries
+
       @media screen and (max-width: 1200px)
         grid-template-columns: 1fr 1fr
-
         .bio__col-2
           display: none
+      @media screen and (max-width: 600px)
+        grid-template-columns: 1fr
+        #col3
+          padding-top: 0 !important
+
+      // styling of grid children
 
       .bio__col
         font-family: Montserrat, sans-serif
         font-size: 12px
         background-blend-mode: multiply
         // letter-spacing: 1px
+        p:first-child
+          strong
+            font-size: 24px
+            letter-spacing: 1.5px
+
         p + p
           margin-top: 15px
 

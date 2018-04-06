@@ -67,7 +67,7 @@ export default {
         &:hover
           font-weight: bold
     &__other-performers
-      font-size: 12px
+      font-size: 10px
       margin-bottom: 3px
       p
         margin-top: 3px

@@ -127,7 +127,7 @@ export default {
 
   &__outer-container
     padding: 0 102px
-    padding-top: 10vh
+    padding-top: 5vh
     display: flex
     flex-direction: column
     justify-content: center
@@ -146,6 +146,8 @@ export default {
         display: inline-block
         margin-left: 50px
         width: 200px
+        @media screen and (max-width: 540px)
+          margin-left: 0
   &__row
     width: 100%
     height: 350px

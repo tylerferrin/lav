@@ -62,6 +62,11 @@ export default {
         this.scrollUpToMenu()
       }
     }
+  },
+  created () {
+    if (window.scrollY > 0) {
+      this.isScrolled = true
+    }
   }
 }
 </script>

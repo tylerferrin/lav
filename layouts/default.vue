@@ -37,8 +37,6 @@ export default {
 
   watch: {
     '$route' (to, from) {
-      window.addEventListener('resize', this.screenWatcher)
-
       if (to.name !== 'index') {
         this.isAnimated = true
       } else {

@@ -64,20 +64,41 @@ export default {
       display: grid
       grid-gap: 1px
       grid-template-columns: 25% 25% 25% 25%
-      grid-template-rows: 225px 225px
+      grid-template-rows: 225px 225px 225px
       background-image: url('~/assets/lav-wide.jpeg')
       background-size: cover
       background-position: center
       background-repeat: no-repeat
+      @media screen and (max-width: 1200px)
+        grid-template-columns: 33.333% 33.333% 33.333%
     &__booking
       grid-column-start: 1
-      grid-column-end: 2
+      @media screen and (max-width: 900px)
+        grid-column-start: 2
+        grid-column-end: 4
+        grid-row-start: 2
     &__general
       grid-column-start: 3
-      grid-column-end: 4
+      grid-column-end: 3
+      @media screen and (max-width: 1200px)
+        grid-column-start: 3
+        grid-row-start: 2
+      @media screen and (max-width: 900px)
+        grid-column-start: 1
+        grid-column-end: 3
+        grid-row-start: 3
+      @media screen and (max-width: 775px)
+        grid-column-start: 2
+        grid-column-end: 4
     &__social
       grid-row-start: 2
       grid-column-start: 4
+      @media screen and (max-width: 1200px)
+        grid-row-start: 3
+        grid-column-start: 2
+      @media screen and (max-width: 900px)
+        grid-row-start: 1
+        grid-column-start: 3
     &__social.info
       ul
         position: relative

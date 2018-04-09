@@ -17,7 +17,7 @@ export default {
   },
   data () {
     return {
-      contentArray: [],
+      contentArray: this.$store.state.contacts,
       title: 'Contact',
       isLeaving: false
     }

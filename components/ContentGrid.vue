@@ -50,6 +50,10 @@
 
         <BioGrid v-if="contentId === 'bio'" />
 
+      <!-- IF CONTENT IS CONTACT USE CONTACT GRID COMPONENT -->
+
+        <ContactGrid v-if="contentId === 'contact'" />
+
     </div>
   </section>
 </template>
@@ -58,13 +62,15 @@
 import MediaFrame from '~/components/MediaFrame'
 import EventRow from '~/components/EventRow'
 import BioGrid from '~/components/BioGrid'
+import ContactGrid from '~/components/ContactGrid'
 import TweenLite from 'gsap'
 
 export default {
   components: {
     MediaFrame,
     EventRow,
-    BioGrid
+    BioGrid,
+    ContactGrid
   },
   props: [
     'contentArray',

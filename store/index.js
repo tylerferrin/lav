@@ -7,7 +7,8 @@ export const state = () => ({
   events: [],
   videos: [],
   albums: [],
-  bio: []
+  bio: [],
+  contacts: []
 })
 
 export const mutations = {
@@ -22,6 +23,9 @@ export const mutations = {
   },
   setBio (state, bio) {
     state.bio = bio
+  },
+  setContacts (state, contacts) {
+    state.contacts = contacts
   }
 }
 
@@ -44,6 +48,10 @@ export const actions = {
         let bio = _.filter(filteredDownResponse, (item) => {
           return item.id === 'bio'
         })
+        let contacts = _.filter(filteredDownResponse, (item) => {
+          return item.id === 'contact'
+        })
+        commit('setContacts', contacts)
         commit('setBio', bio)
         commit('setVideos', videos)
         commit('setEvents', events)

@@ -64,7 +64,7 @@ export default {
       display: grid
       grid-gap: 1px
       grid-template-columns: 25% 25% 25% 25%
-      grid-template-rows: 225px 225px 225px
+      grid-template-rows: 175px 175px 175px
       background-image: url('~/assets/lav-wide.jpeg')
       background-size: cover
       background-position: center

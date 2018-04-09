@@ -78,7 +78,7 @@ export default {
           scroller.scrollTo(element, {
             duration: 700,
             easing: 'linear',
-            offset: -75
+            offset: -25
           })
         }, 150)
       }

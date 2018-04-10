@@ -62,7 +62,7 @@ export default {
     &__container
       filter: grayscale(100%)
       display: grid
-      grid-gap: 1px
+      grid-gap: 5px
       grid-template-columns: 25% 25% 25% 25%
       grid-template-rows: 175px 175px 175px
       background-image: url('~/assets/lav-wide.jpeg')
@@ -80,7 +80,7 @@ export default {
       @media screen and (max-width: 775px)
         grid-row-start: 3
         grid-column-start: 1
-        grid-column-end: 4
+        grid-column-end: 3
     &__general
       grid-column-start: 3
       grid-column-end: 3
@@ -96,14 +96,15 @@ export default {
         grid-column-start: 2
         grid-column-end: 4
     &__social
-      grid-row-start: 2
+      grid-row-start: 3
       grid-column-start: 4
       @media screen and (max-width: 1200px)
-        grid-row-start: 3
         grid-column-start: 2
       @media screen and (max-width: 900px)
-        grid-row-start: 2
+        grid-row-start: 1
         grid-column-start: 3
+      @media screen and (max-width: 775px)
+        grid-row-start: 2
     &__social.info
       ul
         position: relative
@@ -131,9 +132,11 @@ export default {
       text-transform: uppercase
       position: absolute
       top: 25%
+      color: #000
       @media screen and (max-width: 775px)
         top: 20%
     a
+      color: #000
       text-decoration: none
       font-size: 10px
       position: absolute

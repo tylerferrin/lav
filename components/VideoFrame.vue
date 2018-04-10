@@ -58,11 +58,13 @@ export default {
   // CONTAINER GRID STYLES
   .video
     &__container
+
       display: grid
       grid-row-gap: 30px
       grid-template-columns: 1fr 1fr 1fr 1fr
       grid-template-rows: auto
-
+      @media screen and (max-width: 675px)
+        padding-top: 40px
     &__row
       height: auto
       grid-column-start: 1

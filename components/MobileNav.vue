@@ -15,7 +15,7 @@
     </div>
 
     <ul class="route-list">
-      <li><nuxt-link to="/events" v-on:complete="scrollDown">Events</nuxt-link></li>
+      <li><nuxt-link to="/events" >Events</nuxt-link></li>
       <li><nuxt-link to="/music" >Music</nuxt-link></li>
       <li><nuxt-link to="/video" >Video</nuxt-link></li>
       <li><nuxt-link to="/works" >Works</nuxt-link></li>
@@ -39,7 +39,7 @@ export default {
       scrollUpToMenu: () => {
         scroller.scrollTo('.mobile-nav__container', {
           duration: 300,
-          easing: 'linear',
+          easing: 'ease-in-out',
           offset: 0
         })
         this.isScrolled = false
@@ -48,7 +48,7 @@ export default {
         setTimeout(() => {
           scroller.scrollTo(element, {
             duration: 700,
-            easing: 'linear',
+            easing: 'ease-in-out',
             offset: -75
           })
           this.isScrolled = true
@@ -61,11 +61,10 @@ export default {
       if (to.name === 'index') {
         this.scrollUpToMenu()
       } else {
-        this.scrollDown('.content-grid__outer-container')
+        setTimeout(() => {
+          this.scrollDown('.content-grid__outer-container')
+        }, 150)
       }
-      // } else if (to.name !== 'index') {
-      //   this.scrollDown('.content-grid__outer-container')
-      // }
     }
   },
   created () {

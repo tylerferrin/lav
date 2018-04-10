@@ -15,7 +15,7 @@
     </div>
 
     <ul class="route-list">
-      <li><nuxt-link to="/events">Events</nuxt-link></li>
+      <li><nuxt-link to="/events" v-on:complete="scrollDown">Events</nuxt-link></li>
       <li><nuxt-link to="/music" >Music</nuxt-link></li>
       <li><nuxt-link to="/video" >Video</nuxt-link></li>
       <li><nuxt-link to="/works" >Works</nuxt-link></li>
@@ -60,9 +60,12 @@ export default {
     '$route' (to, from) {
       if (to.name === 'index') {
         this.scrollUpToMenu()
-      } else if (to.name !== 'index') {
+      } else {
         this.scrollDown('.content-grid__outer-container')
       }
+      // } else if (to.name !== 'index') {
+      //   this.scrollDown('.content-grid__outer-container')
+      // }
     }
   },
   created () {

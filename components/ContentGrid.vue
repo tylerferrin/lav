@@ -19,23 +19,10 @@
     </transition>
 
     <div class="content-grid__outer-container">
-      <!-- CONTENT THAT WORKS IN A GRID -->
-      <template v-if="contentId === 'album' || contentId === 'video' || contentId === 'collab' ">
-        <div v-for="(content, index) in contentArray" class="content-grid__row">
-          <h1 class="counter"> 0{{ index + 1 }}</h1>
 
-          <div class="title-and-description">
+      <!-- IF CONTENT IS VIDEO - DISPLAY YOUTUBE VIDEO IFRAME -->
+      <VideoFrame :content='content' />
 
-            <p class="content-title">{{ content.title }}</p>
-            <p class="content-description"></p>
-
-          </div>
-
-          <!-- IF CONTENT IS VIDEO - DISPLAY YOUTUBE VIDEO IFRAME -->
-          <MediaFrame :content='content' />
-
-        </div>
-      </template>
       <!-- Create ghost divs to keep the grid layout looking clean -->
       <!-- <div v-for="ghost in ghostVids" class="content-grid__column ghost"></div> -->
 
@@ -48,18 +35,18 @@
 
       <!-- IF CONTENT IS BIO USE BIO GRID COMPONENT -->
 
-        <BioGrid v-if="contentId === 'bio'" />
+      <BioGrid v-if="contentId === 'bio'" />
 
       <!-- IF CONTENT IS CONTACT USE CONTACT GRID COMPONENT -->
 
-        <ContactGrid v-if="contentId === 'contact'" />
+      <ContactGrid v-if="contentId === 'contact'" />
 
     </div>
   </section>
 </template>
 
 <script>
-import MediaFrame from '~/components/MediaFrame'
+import VideoFrame from '~/components/VideoFrame'
 import EventRow from '~/components/EventRow'
 import BioGrid from '~/components/BioGrid'
 import ContactGrid from '~/components/ContactGrid'
@@ -67,7 +54,7 @@ import TweenLite from 'gsap'
 
 export default {
   components: {
-    MediaFrame,
+    VideoFrame,
     EventRow,
     BioGrid,
     ContactGrid

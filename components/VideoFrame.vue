@@ -1,6 +1,11 @@
 <template>
   <section>
-    <div v-if="content.id === 'video' " class="youtube" :data-embed="content.videoUrl">
+    <!-- IF CONTENT IS VIDEO - DISPLAY YOUTUBE VIDEO IFRAME -->
+    <p>frame</p>
+    <div
+      v-if="content.id === 'video' "
+      class="youtube"
+      :data-embed="content.videoUrl">
       <!-- Copy & Pasted from YouTube -->
       <!-- <iframe width="560" height="349" :src="content.videoUrl" frameborder="0" allowfullscreen></iframe> -->
       <div class="play-button"></div>
@@ -27,7 +32,7 @@ export default {
   mounted () {
     var youtube = document.querySelectorAll('.youtube')
     for (var i = 0; i < youtube.length; i++) {
-      var source = 'https://img.youtube.com/vi/' + youtube[i].dataset.embed + '/maxresdefault.jpg'
+      var source = 'https://img.youtube.com/vi/' + youtube[i].dataset.embed + '/sddefault.jpg'
       var image = new Image()
       image.src = source
       image.addEventListener('load', (function () {
@@ -49,18 +54,16 @@ export default {
 <style lang="sass">
   .youtube
     background-color: #000
+    margin-bottom: 30px
     position: relative
     padding-top: 56.25%
     overflow: hidden
     cursor: pointer
-    width: 560px
-    height: 315px
     display: inline-block
 
   .youtube img
     width: 100%
-    height: auto
-    top: 0
+    top: -16.84%
     left: 0
     opacity: 0.7
 

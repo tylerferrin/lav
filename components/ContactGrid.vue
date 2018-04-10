@@ -77,6 +77,10 @@ export default {
         grid-column-start: 2
         grid-column-end: 4
         grid-row-start: 2
+      @media screen and (max-width: 775px)
+        grid-row-start: 3
+        grid-column-start: 1
+        grid-column-end: 4
     &__general
       grid-column-start: 3
       grid-column-end: 3
@@ -88,6 +92,7 @@ export default {
         grid-column-end: 3
         grid-row-start: 3
       @media screen and (max-width: 775px)
+        grid-row-start: 1
         grid-column-start: 2
         grid-column-end: 4
     &__social
@@ -97,12 +102,12 @@ export default {
         grid-row-start: 3
         grid-column-start: 2
       @media screen and (max-width: 900px)
-        grid-row-start: 1
+        grid-row-start: 2
         grid-column-start: 3
     &__social.info
       ul
         position: relative
-        top: 25%
+        top: 15%
         padding-left: 0
         li
           list-style: none
@@ -119,16 +124,23 @@ export default {
     background-color: lighten(grey, 45%)
     padding: 15px
     font-family: 'Montserrat'
+    @media screen and (max-width: 775px)
+      padding: 7.5px
     p
       font-size: 12px
       text-transform: uppercase
       position: absolute
       top: 25%
+      @media screen and (max-width: 775px)
+        top: 20%
     a
       text-decoration: none
       font-size: 10px
       position: absolute
       top: 40%
+      @media screen and (max-width: 775px)
+        top: 45%
+        font-size: 8px
 
 
 </style>

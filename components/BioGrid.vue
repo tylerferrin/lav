@@ -1,9 +1,8 @@
 <template>
   <section class="bio__container">
-      <div class="bio__col">
+      <div class="bio__col photo">
         <img id="lavPhoto" src="~/assets/lav-bw-photo.png" alt="Holland Andrews">
       </div>
-      <div class="bio__col-2"></div>
       <div
         id="col3"
         class="bio__col"
@@ -55,15 +54,18 @@ export default {
 
       @media screen and (max-width: 1200px)
         grid-template-columns: 1fr 1fr
-        .bio__col-2
-          display: none
-      @media screen and (max-width: 600px)
+
+      @media screen and (max-width: 750px)
         grid-template-columns: 1fr
         #col3
           padding-top: 0 !important
 
       // styling of grid children
-
+      .photo
+        grid-column-start: 1
+        grid-column-end: 3
+        @media screen and (max-width: 1200px)
+          grid-column-end: 2
       .bio__col
         font-family: Montserrat, sans-serif
         font-size: 12px

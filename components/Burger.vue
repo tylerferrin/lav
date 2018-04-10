@@ -26,6 +26,8 @@ export default {
     margin: 25px 25px 0 0
     border: none
     background-color: transparent
+    @media screen and (max-width: 400px)
+      margin: 22px 7px 0 0
     &:hover
       cursor: pointer
       outline: none
@@ -38,6 +40,8 @@ export default {
       svg
         height: 14px
         transform: rotate(180deg)
+        @media screen and (max-width: 400px)
+          height: 12px
 
   .showArrow
     opacity: 1 !important

@@ -145,7 +145,7 @@ export default {
     justify-content: center
     width: 100%
     @media screen and (max-width: 675px)
-      padding: 0 40px
+      padding: 0 25px
 
     .event-container
       @supports (display: grid)

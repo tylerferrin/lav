@@ -93,6 +93,8 @@ export default {
       font-weight: 200
       font-size: 2em
       text-transform: uppercase
+      @media screen and (max-width: 400px)
+        font-size: 1.55em
 
   .route-list
     position: absolute
@@ -115,6 +117,8 @@ export default {
         font-weight: 200
         font-size: 1.75em
         text-transform: uppercase
+        @media screen and (max-width: 400px)
+          font-size: 1.5em
 
 
 

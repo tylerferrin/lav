@@ -1,21 +1,23 @@
 <template>
-  <section>
-    <!-- IF CONTENT IS VIDEO - DISPLAY YOUTUBE VIDEO IFRAME -->
-    <p>frame</p>
-    <div
-      v-if="content.id === 'video' "
-      class="youtube"
-      :data-embed="content.videoUrl">
+  <section class="video__container">
+
+    <div v-for="(video, index) in videoArray" class="video__row" >
+      <div
+        v-if="video.id === 'video' "
+        class="youtube"
+        :data-embed="video.videoUrl">
       <!-- Copy & Pasted from YouTube -->
       <!-- <iframe width="560" height="349" :src="content.videoUrl" frameborder="0" allowfullscreen></iframe> -->
-      <div class="play-button"></div>
+        <div class="title">{{ video.title }}</div>
+      </div>
+
     </div>
 
     <!-- IF CONTENT IS MUSIC - DISPLAY BANDCAMP MUSIC IFRAME -->
-      <iframe v-if="content.id === 'album' " style="border: 0; width: 350px; height: 350px;" :src="content.embedLink"></iframe>
+      <!-- <iframe v-if="content.id === 'album' " style="border: 0; width: 350px; height: 350px;" :src="content.embedLink"></iframe> -->
 
     <!-- IF CONTENT IS COLLAB - DISPLAY COLLAB CONTENT -->
-    <iframe v-if="content.id === 'collab' " ></iframe>
+    <!-- <iframe v-if="content.id === 'collab' " ></iframe> -->
 
   </section>
 </template>
@@ -24,15 +26,16 @@
 export default {
   data () {
     return {
+      videoArray: this.$store.state.videos
     }
   },
   props: [
-    'content'
+
   ],
   mounted () {
     var youtube = document.querySelectorAll('.youtube')
     for (var i = 0; i < youtube.length; i++) {
-      var source = 'https://img.youtube.com/vi/' + youtube[i].dataset.embed + '/sddefault.jpg'
+      var source = 'https://img.youtube.com/vi/' + youtube[i].dataset.embed + '/maxresdefault.jpg'
       var image = new Image()
       image.src = source
       image.addEventListener('load', (function () {
@@ -52,6 +55,22 @@ export default {
 }
 </script>
 <style lang="sass">
+  // CONTAINER GRID STYLES
+  .video
+    &__container
+      display: grid
+      grid-row-gap: 30px
+      grid-template-columns: 1fr 1fr 1fr 1fr
+      grid-template-rows: auto
+
+    &__row
+      height: auto
+      grid-column-start: 1
+      grid-column-end: 5
+
+
+
+  // YOUTUBE FRAME AND BUTTON STYLING
   .youtube
     background-color: #000
     margin-bottom: 30px
@@ -59,41 +78,47 @@ export default {
     padding-top: 56.25%
     overflow: hidden
     cursor: pointer
-    display: inline-block
+    width: 100%
 
   .youtube img
     width: 100%
-    top: -16.84%
+    top: 0
     left: 0
     opacity: 0.7
 
-  .youtube .play-button
-    width: 90px
-    height: 60px
+  .youtube .title
+    font-family: 'Montserrat'
+    font-weight: 700
+    font-size: 4em
+    letter-spacing: 4px
+    color: white
+    text-align: center
+    text-transform: uppercase
     background-color: transparent
     box-shadow: none
     z-index: 1
-    opacity: 0.8
-    border-radius: 6px
+    @media screen and (max-width: 900px)
+      font-size: 3em
+    @media screen and (max-width: 700px)
+      font-size: 2em
+    @media screen and (max-width: 500px)
+      font-size: 1.5em
 
-  .youtube .play-button:before
-    content: ""
-    border-style: solid
-    border-width: 15px 0 15px 30px
-    border-color: transparent transparent transparent rgba(255,255,255,1)
+  .youtube .title:before
+
 
   .youtube img,
-  .youtube .play-button
+  .youtube .title
     cursor: pointer
 
   .youtube img,
   .youtube iframe,
-  .youtube .play-button,
-  .youtube .play-button:before
+  .youtube .title,
+  .youtube .title:before
     position: absolute
 
-  .youtube .play-button,
-  .youtube .play-button:before
+  .youtube .title,
+  .youtube .title:before
     top: 50%
     left: 50%
     transform: translate3d( -50%, -50%, 0 )
@@ -103,6 +128,7 @@ export default {
     width: 100%
     top: 0
     left: 0
+
 
 
 </style>

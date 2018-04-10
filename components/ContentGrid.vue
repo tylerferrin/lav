@@ -21,7 +21,7 @@
     <div class="content-grid__outer-container">
 
       <!-- IF CONTENT IS VIDEO - DISPLAY YOUTUBE VIDEO IFRAME -->
-      <VideoFrame :content='content' />
+      <VideoFrame v-if="contentId === 'video'" />
 
       <!-- Create ghost divs to keep the grid layout looking clean -->
       <!-- <div v-for="ghost in ghostVids" class="content-grid__column ghost"></div> -->
@@ -89,7 +89,7 @@ export default {
 <style lang="sass">
 .content-grid
   margin-top: 100vh
-  padding-bottom: 375px
+  padding-bottom: 80px
   background-color: lighten(grey, 45%)
   .quick-nav
     position: absolute

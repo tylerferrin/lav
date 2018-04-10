@@ -15,12 +15,12 @@
     </div>
 
     <ul class="route-list">
-      <li v-on:click="scrollDown('.content-grid__outer-container')"><nuxt-link to="/events">Events</nuxt-link></li>
-      <li v-on:click="scrollDown('.content-grid__outer-container')"><nuxt-link to="/music" >Music</nuxt-link></li>
-      <li v-on:click="scrollDown('.content-grid__outer-container')"><nuxt-link to="/video" >Video</nuxt-link></li>
-      <li v-on:click="scrollDown('.content-grid__outer-container')"><nuxt-link to="/works" >Works</nuxt-link></li>
-      <li v-on:click="scrollDown('.content-grid__outer-container')"><nuxt-link to="/biography" >Biography</nuxt-link></li>
-      <li v-on:click="scrollDown('.content-grid__outer-container')"><nuxt-link to="/contact" >Contact</nuxt-link></li>
+      <li><nuxt-link to="/events">Events</nuxt-link></li>
+      <li><nuxt-link to="/music" >Music</nuxt-link></li>
+      <li><nuxt-link to="/video" >Video</nuxt-link></li>
+      <li><nuxt-link to="/works" >Works</nuxt-link></li>
+      <li><nuxt-link to="/biography" >Biography</nuxt-link></li>
+      <li><nuxt-link to="/contact" >Contact</nuxt-link></li>
     </ul>
   </section>
 </template>
@@ -40,7 +40,7 @@ export default {
         scroller.scrollTo('.mobile-nav__container', {
           duration: 300,
           easing: 'linear',
-          offset: -75
+          offset: 0
         })
         this.isScrolled = false
       },
@@ -60,6 +60,8 @@ export default {
     '$route' (to, from) {
       if (to.name === 'index') {
         this.scrollUpToMenu()
+      } else if (to.name !== 'index') {
+        this.scrollDown('.content-grid__outer-container')
       }
     }
   },

@@ -23,6 +23,9 @@
       <!-- IF CONTENT IS VIDEO - DISPLAY YOUTUBE VIDEO IFRAME -->
       <VideoFrame v-if="contentId === 'video'" />
 
+      <!-- IF CONTENT IS ALBUM - DISPLAY BANDCAMP ALBUM IFRAME -->
+      <AlbumFrame v-if="contentId === 'album'" />
+
       <!-- Create ghost divs to keep the grid layout looking clean -->
       <!-- <div v-for="ghost in ghostVids" class="content-grid__column ghost"></div> -->
 
@@ -47,6 +50,7 @@
 
 <script>
 import VideoFrame from '~/components/VideoFrame'
+import AlbumFrame from '~/components/AlbumFrame'
 import EventRow from '~/components/EventRow'
 import BioGrid from '~/components/BioGrid'
 import ContactGrid from '~/components/ContactGrid'
@@ -55,6 +59,7 @@ import TweenLite from 'gsap'
 export default {
   components: {
     VideoFrame,
+    AlbumFrame,
     EventRow,
     BioGrid,
     ContactGrid

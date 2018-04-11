@@ -3,7 +3,6 @@
 
     <div v-for="(video, index) in videoArray" class="video__row" >
       <div
-        v-if="video.id === 'video' "
         class="youtube"
         :data-embed="video.videoUrl">
       <!-- Copy & Pasted from YouTube -->
@@ -12,9 +11,6 @@
       </div>
 
     </div>
-
-    <!-- IF CONTENT IS MUSIC - DISPLAY BANDCAMP MUSIC IFRAME -->
-      <!-- <iframe v-if="content.id === 'album' " style="border: 0; width: 350px; height: 350px;" :src="content.embedLink"></iframe> -->
 
     <!-- IF CONTENT IS COLLAB - DISPLAY COLLAB CONTENT -->
     <!-- <iframe v-if="content.id === 'collab' " ></iframe> -->

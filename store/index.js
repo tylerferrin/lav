@@ -7,6 +7,7 @@ export const state = () => ({
   events: [],
   videos: [],
   albums: [],
+  works: [],
   bio: [],
   contacts: []
 })
@@ -26,6 +27,9 @@ export const mutations = {
   },
   setContacts (state, contacts) {
     state.contacts = contacts
+  },
+  setWorks (state, works) {
+    state.works = works
   }
 }
 
@@ -33,24 +37,15 @@ export const actions = {
   async nuxtServerInit ({commit}) {
     return client.getEntries()
       .then((response) => {
-        let filteredDownResponse = _.map(response.items, (item) => {
-          return Object.assign({}, item.fields, item.sys.contentType.sys)
-        })
-        let events = _.orderBy(_.filter(filteredDownResponse, (item) => {
-          return item.id === 'event'
-        }), 'date')
-        let videos = _.orderBy(_.filter(filteredDownResponse, (item) => {
-          return item.id === 'video'
-        }), 'orderNumber')
-        let albums = _.filter(filteredDownResponse, (item) => {
-          return item.id === 'album'
-        })
-        let bio = _.filter(filteredDownResponse, (item) => {
-          return item.id === 'bio'
-        })
-        let contacts = _.filter(filteredDownResponse, (item) => {
-          return item.id === 'contact'
-        })
+        let filteredDownResponse =
+        _.map(response.items, item => Object.assign({}, item.fields, item.sys.contentType.sys))
+        let events = _.orderBy(_.filter(filteredDownResponse, item => item.id === 'event'), 'date')
+        let videos = _.orderBy(_.filter(filteredDownResponse, item => item.id === 'video'), 'orderNumber')
+        let albums = _.filter(filteredDownResponse, item => item.id === 'album')
+        let bio = _.filter(filteredDownResponse, item => item.id === 'bio')
+        let contacts = _.filter(filteredDownResponse, item => item.id === 'contact')
+        let works = _.filter(filteredDownResponse, item => item.id === 'collaborativeWork')
+        commit('setWorks', works)
         commit('setContacts', contacts)
         commit('setBio', bio)
         commit('setVideos', videos)

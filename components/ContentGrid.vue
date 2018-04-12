@@ -1,13 +1,13 @@
 <template>
   <section class="content-grid">
 
-    <transition
+    <!-- <transition
       v-on:before-enter="beforeEnter"
       v-on:enter="enter"
       v-bind:css="false"
       appear
       mode="out-in" >
-    </transition>
+    </transition> -->
 
     <transition
       v-on:before-enter="beforeEnter"
@@ -20,28 +20,26 @@
 
     <div class="content-grid__outer-container">
 
-      <!-- IF CONTENT IS VIDEO - DISPLAY YOUTUBE VIDEO IFRAME -->
-      <VideoFrame v-if="contentId === 'video'" />
-
-      <!-- IF CONTENT IS ALBUM - DISPLAY BANDCAMP ALBUM IFRAME -->
-      <AlbumFrame v-if="contentId === 'album'" />
-
-      <!-- Create ghost divs to keep the grid layout looking clean -->
-      <!-- <div v-for="ghost in ghostVids" class="content-grid__column ghost"></div> -->
-
-      <!-- IF CONTENT IS SHOWS USE EVENT COMPONENT -->
+      <!-- EVENTS -->
       <div v-if="contentId === 'event' " class="event-container">
         <div v-for="event in contentArray" class="event-item">
           <EventRow :event='event' />
         </div>
       </div>
 
-      <!-- IF CONTENT IS BIO USE BIO GRID COMPONENT -->
+      <!-- MUSIC-->
+      <AlbumFrame v-if="contentId === 'album'" />
 
+      <!-- VIDEO-->
+      <VideoFrame v-if="contentId === 'video'" />
+
+      <!-- WORKS -->
+      <WorksGrid v-if="contentId === 'collaborativeWork'" />
+
+      <!-- BIO -->
       <BioGrid v-if="contentId === 'bio'" />
 
-      <!-- IF CONTENT IS CONTACT USE CONTACT GRID COMPONENT -->
-
+      <!-- CONTACT -->
       <ContactGrid v-if="contentId === 'contact'" />
 
     </div>
@@ -49,18 +47,20 @@
 </template>
 
 <script>
-import VideoFrame from '~/components/VideoFrame'
-import AlbumFrame from '~/components/AlbumFrame'
 import EventRow from '~/components/EventRow'
+import AlbumFrame from '~/components/AlbumFrame'
+import VideoFrame from '~/components/VideoFrame'
+import WorksGrid from '~/components/WorksGrid'
 import BioGrid from '~/components/BioGrid'
 import ContactGrid from '~/components/ContactGrid'
 import TweenLite from 'gsap'
 
 export default {
   components: {
-    VideoFrame,
-    AlbumFrame,
     EventRow,
+    AlbumFrame,
+    VideoFrame,
+    WorksGrid,
     BioGrid,
     ContactGrid
   },

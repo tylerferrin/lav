@@ -7,7 +7,7 @@
             'nav__title-down': isAnimated,
             'nav__title-static': !isAnimated
           }">
-          Like a Villain
+          Holland Andrews
         </h1>
       </nuxt-link>
       <nuxt-link to="/">
@@ -16,7 +16,7 @@
           v-bind:class="{
             'nav__title-right': isAnimated,
           }">
-          Like a Villain
+          Holland Andrews
         </h1>
       </nuxt-link>
 
@@ -134,7 +134,7 @@ export default {
       transition: all .75s ease-in-out
       text-align: center
       font-weight: 200
-      font-size: 3em
+      font-size: 2.5em
       text-transform: uppercase
       &:hover
         cursor: pointer
@@ -167,14 +167,14 @@ export default {
         text-align: center
         font-family: 'Montserrat'
         font-weight: 200
-        font-size: 3em
+        font-size: 2.5em
         text-transform: uppercase
       &-right
         color: black
         display: block
         position: fixed
         top: 0
-        left: 102px
+        left: 94px
         width: 100vh
         transform-origin: top left
         transform: rotate(90deg)
@@ -183,7 +183,7 @@ export default {
         text-align: center
         font-family: 'Montserrat'
         font-weight: 200
-        font-size: 3em
+        font-size: 2.5em
         text-transform: uppercase
         z-index: 5
     &__nav

@@ -38,11 +38,11 @@
       </ul>
 
 
-      <div class="down-arrow" v-bind:class="{ 'showing': isAnimated} ">
+      <!-- <div class="down-arrow" v-bind:class="{ 'showing': isAnimated} ">
         <svg v-on:click="scrollDown('.content-grid__outer-container')" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43.13 22.27">
           <polygon class="cls-1" points="21.57 22.27 0 0.71 0.71 0 21.57 20.86 42.43 0 43.13 0.71 21.57 22.27"/>
         </svg>
-      </div>
+      </div> -->
 
     </div>
   </div>
@@ -81,7 +81,29 @@ export default {
             offset: -25
           })
         }, 150)
+      },
+      scrollUpToMenu: () => {
+        scroller.scrollTo('.nav__header-container', {
+          duration: 300,
+          easing: 'ease-in-out',
+          offset: 0
+        })
+        this.isScrolled = false
       }
+    }
+  },
+  watch: {
+    '$route' (to, from) {
+      if (to.name === 'index') {
+        // do nothing
+      } else {
+        setTimeout(() => {
+          this.scrollDown('.content-grid__outer-container')
+        }, 150)
+      }
+    },
+    destroy () {
+      this.scrollUpToMenu()
     }
   }
 }

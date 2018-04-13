@@ -76,19 +76,11 @@ export default {
       scrollDown: (element) => {
         setTimeout(() => {
           scroller.scrollTo(element, {
-            duration: 700,
-            easing: 'linear',
+            duration: 500,
+            easing: 'ease-in-out',
             offset: -25
           })
         }, 150)
-      },
-      scrollUpToMenu: () => {
-        scroller.scrollTo('.nav__header-container', {
-          duration: 300,
-          easing: 'ease-in-out',
-          offset: 0
-        })
-        this.isScrolled = false
       }
     }
   },
@@ -99,11 +91,8 @@ export default {
       } else {
         setTimeout(() => {
           this.scrollDown('.content-grid__outer-container')
-        }, 150)
+        }, 350)
       }
-    },
-    destroy () {
-      this.scrollUpToMenu()
     }
   }
 }

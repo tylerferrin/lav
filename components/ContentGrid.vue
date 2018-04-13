@@ -77,7 +77,7 @@ export default {
         el.style.transform = 'translateX(-200%)'
       },
       enter (el, done) {
-        TweenLite.to(el, 0.75, { transform: 'translateX(200%)', opacity: 1, delay: 0.45 }, 'ease-in')
+        TweenLite.to(el, 0.7, { transform: 'translateX(200%)', opacity: 1, delay: 0 }, 'ease-in-out')
       },
       leave () {
         TweenLite.to('.slide-left-leave', 0.65, { transform: 'matrix(1, 0, 0, 1, -650, 0)', opacity: 0 }, 'ease-out')
@@ -94,7 +94,8 @@ export default {
 <style lang="sass">
 .content-grid
   margin-top: 100vh
-  padding-bottom: 80px
+  padding-bottom: 50vh
+  max-height: 100%
   background-color: lighten(grey, 45%)
   .quick-nav
     position: absolute

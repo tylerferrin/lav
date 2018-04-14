@@ -4,7 +4,7 @@
       <div class="click-wrapper" v-on:click="scrollUpToMenu">
         <nuxt-link to="/" disable class="mobile-nav__route-to">
           <h1 class="mobile-nav__title">
-            Like a Villain
+            Holland Andrews
           </h1>
         </nuxt-link>
       </div>
@@ -36,14 +36,26 @@ export default {
   data () {
     return {
       isScrolled: false,
+
+      scrollPosition: null,
+
+      toggleArrowVisibility: () => {
+        let scrollPosition = window.scrollY
+        if (scrollPosition > 180) {
+          this.isScrolled = true
+        } else {
+          this.isScrolled = false
+        }
+      },
+
       scrollUpToMenu: () => {
         scroller.scrollTo('.mobile-nav__container', {
           duration: 300,
           easing: 'ease-in-out',
           offset: 0
         })
-        this.isScrolled = false
       },
+
       scrollDown: (element) => {
         setTimeout(() => {
           scroller.scrollTo(element, {
@@ -51,11 +63,18 @@ export default {
             easing: 'ease-in-out',
             offset: -75
           })
-          this.isScrolled = true
         }, 150)
       }
     }
   },
+
+  created () {
+    window.addEventListener('scroll', this.toggleArrowVisibility)
+    if (window.scrollY > 0) {
+      this.isScrolled = true
+    }
+  },
+
   watch: {
     '$route' (to, from) {
       if (to.name === 'index') {
@@ -65,11 +84,6 @@ export default {
           this.scrollDown('.content-grid__outer-container')
         }, 150)
       }
-    }
-  },
-  created () {
-    if (window.scrollY > 0) {
-      this.isScrolled = true
     }
   }
 }
@@ -93,6 +107,8 @@ export default {
       font-weight: 200
       font-size: 2em
       text-transform: uppercase
+      letter-spacing: 2px
+      transition: all .55s ease-in-out
       @media screen and (max-width: 400px)
         font-size: 1.55em
 

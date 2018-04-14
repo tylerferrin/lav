@@ -1,14 +1,6 @@
 <template>
   <section class="content-grid">
 
-    <!-- <transition
-      v-on:before-enter="beforeEnter"
-      v-on:enter="enter"
-      v-bind:css="false"
-      appear
-      mode="out-in" >
-    </transition> -->
-
     <transition
       v-on:before-enter="beforeEnter"
       v-on:enter="enter"
@@ -77,7 +69,7 @@ export default {
         el.style.transform = 'translateX(-200%)'
       },
       enter (el, done) {
-        TweenLite.to(el, 0.7, { transform: 'translateX(200%)', opacity: 1, delay: 0 }, 'ease-in-out')
+        TweenLite.to(el, 0.7, { transform: 'translateX(200%)', opacity: 1 }, 'ease-in-out')
       },
       leave () {
         TweenLite.to('.slide-left-leave', 0.65, { transform: 'matrix(1, 0, 0, 1, -650, 0)', opacity: 0 }, 'ease-out')

@@ -41,7 +41,7 @@ export default {
 
       toggleArrowVisibility: () => {
         let scrollPosition = window.scrollY
-        if (scrollPosition > 180) {
+        if (scrollPosition > 400) {
           this.isScrolled = true
         } else {
           this.isScrolled = false

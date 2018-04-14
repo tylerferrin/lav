@@ -1,41 +1,44 @@
 <template>
-  <section class="content-grid">
+    <section class="content-grid">
+      <transition
+        v-on:before-enter="beforeEnter"
+        v-on:enter="enter"
+        v-bind:css="false"
+        appear
+        mode="out-in" >
 
-    <transition
-      v-on:before-enter="beforeEnter"
-      v-on:enter="enter"
-      v-bind:css="false"
-      appear
-      mode="out-in" >
-      <h1 class="page-title slide-left-leave"> {{ title }} </h1>
-    </transition>
+        <h1 class="page-title slide-left-leave">
+          {{ title }}
+        </h1>
 
-    <div class="content-grid__outer-container">
+      </transition>
 
-      <!-- EVENTS -->
-      <div v-if="contentId === 'event' " class="event-container">
-        <div v-for="event in contentArray" class="event-item">
-          <EventRow :event='event' />
+      <div class="content-grid__outer-container">
+
+        <!-- EVENTS -->
+        <div v-if="contentId === 'event' " class="event-container">
+          <div v-for="event in contentArray" class="event-item">
+            <EventRow :event='event' />
+          </div>
         </div>
+
+        <!-- MUSIC-->
+        <AlbumFrame v-if="contentId === 'album'" />
+
+        <!-- VIDEO-->
+        <VideoFrame v-if="contentId === 'video'" />
+
+        <!-- WORKS -->
+        <WorksGrid v-if="contentId === 'collaborativeWork'" />
+
+        <!-- BIO -->
+        <BioGrid v-if="contentId === 'bio'" />
+
+        <!-- CONTACT -->
+        <ContactGrid v-if="contentId === 'contact'" />
+
       </div>
-
-      <!-- MUSIC-->
-      <AlbumFrame v-if="contentId === 'album'" />
-
-      <!-- VIDEO-->
-      <VideoFrame v-if="contentId === 'video'" />
-
-      <!-- WORKS -->
-      <WorksGrid v-if="contentId === 'collaborativeWork'" />
-
-      <!-- BIO -->
-      <BioGrid v-if="contentId === 'bio'" />
-
-      <!-- CONTACT -->
-      <ContactGrid v-if="contentId === 'contact'" />
-
-    </div>
-  </section>
+    </section>
 </template>
 
 <script>
@@ -72,7 +75,8 @@ export default {
         TweenLite.to(el, 0.7, { transform: 'translateX(200%)', opacity: 1 }, 'ease-in-out')
       },
       leave () {
-        TweenLite.to('.slide-left-leave', 0.65, { transform: 'matrix(1, 0, 0, 1, -650, 0)', opacity: 0 }, 'ease-out')
+        TweenLite.to('.slide-left-leave', 0.65, { transform: 'matrix(1, 0, 0, 1, -650, 0)', opacity: 0 }, 'ease-in')
+        TweenLite.to('.content-grid', 0.45, { opacity: 0 }, 'ease-out')
       }
     }
   },
@@ -84,6 +88,10 @@ export default {
 }
 </script>
 <style lang="sass">
+.leaving
+  opacity: 1
+.hasLeft
+  opacity: 0
 .content-grid
   margin-top: 100vh
   padding-bottom: 50vh

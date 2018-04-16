@@ -1,7 +1,7 @@
 <template>
   <section class="bio__container">
     <div class="photo">
-      <img id="lavPhoto" src="~/assets/lav-bio-photo.jpg" alt="Holland Andrews" />
+      <img id="lavPhoto" src="~/assets/lav-bio-photo.jpeg" alt="Holland Andrews" />
     </div>
     <div id="col3" class="bio__col" v-bind:style="{ paddingTop: this.paddingHeight + 'px' }" ></div>
   </section>

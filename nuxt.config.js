@@ -9,7 +9,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Like A Villain Web Site' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '~/assets/transparent_icon.png' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
       {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900|Open+Sans:300,400,600,700,800'

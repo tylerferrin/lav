@@ -31,8 +31,8 @@ export default {
   mounted () {
     var youtube = document.querySelectorAll('.youtube')
     for (var i = 0; i < youtube.length; i++) {
-      var source = 'https://img.youtube.com/vi/' + youtube[i].dataset.embed + '/maxresdefault.jpg'
       var image = new Image()
+      var source = 'https://img.youtube.com/vi/' + youtube[i].dataset.embed + '/maxresdefault.jpg'
       image.src = source
       image.addEventListener('load', (function () {
         youtube[ i ].appendChild(image)

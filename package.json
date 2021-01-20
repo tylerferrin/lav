@@ -14,7 +14,7 @@
     "deploy": "surge --project ./dist --domain hollandandrews.com"
   },
   "dependencies": {
-    "gsap": "^1.20.4",
+    "gsap": "^3.6.0",
     "nuxt": "^1.4.0"
   },
   "devDependencies": {
